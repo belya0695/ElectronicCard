@@ -89,6 +89,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Exceptions\exception-page-style.css" />
+    <Content Include="Content\Exceptions\500.html" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -119,6 +121,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EC.Business\EC.Business.csproj">
+      <Project>{bfc9a006-bc92-4574-bd37-03955ff6cbaa}</Project>
+      <Name>EC.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EC.Common\EC.Common.csproj">
       <Project>{9fe5c84a-82cf-4a05-8c66-a73f8e4b37db}</Project>
       <Name>EC.Common</Name>
