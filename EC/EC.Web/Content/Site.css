@@ -1,0 +1,22 @@
+﻿body {
+    margin: 0px;
+}
+
+.left-bar {
+    width: 150px;
+    float: left;
+    padding: 5px;
+    padding-top: 30px;
+    background-color: lightgray;
+}
+
+header {
+    margin: 0px;
+    height: 30px;
+    background-color: darkseagreen;
+}
+
+.left-bar-ref {
+    text-decoration: none;
+    display: block;
+}
