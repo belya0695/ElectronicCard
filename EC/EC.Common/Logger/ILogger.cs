@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EC.Common
+namespace EC.Common.Loggers
 {
-    interface ILogger
+    public interface ILogger
     {
         void LogInfo(string message);
         void LogError(Exception exception);

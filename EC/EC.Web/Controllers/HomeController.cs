@@ -3,29 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using EC.Common;
+using EC.Common.Loggers;
 using EC.Business;
 
 namespace EC.Web.Controllers
 {
     public class HomeController : Controller
     {
-        Logger logger = new Logger();
+        private readonly ILogger _logger;
+        private readonly IStacktraseTest _stacktraseTest;
+
+        public HomeController(ILogger logger, IStacktraseTest stacktraseTest)
+        {
+            _logger = logger;
+            _stacktraseTest = stacktraseTest;
+        }
 
         // GET: Home
         public ActionResult Index()
         {
             try
-            {                
-                logger.LogInfo("я кажется работаю");
-                StacktraseTest.TestMethod();
+            {
+                _stacktraseTest.TestMethod();
+                return View();
             }
             catch (ArgumentException ex)
             {
-                logger.LogInfo(ex.Message);
+                _logger.LogInfo(ex.Message);
                 return Redirect("/Content/Exceptions/500.html");
-            }
-            return View();
+            }            
         }
     }
 }
