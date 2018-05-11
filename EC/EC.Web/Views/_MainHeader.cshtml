@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header>
+        <div class="center-elements">
+            <a href="~/Home/StartPage">Главная</a>
+            <a href="~/Records/GetRecordsList">Записи врачей</a>
+            <a href="">Личный кабинет</a>
+            <a href="~/Records/SearchPage">Поиск записей</a>
+            <a href="~/Patient/GetPatientList">Список пациентов</a>
+            <a href="~/Home/EditorStartPage">Редактор</a>
+            <a href="~/Home/EditorStartPage">Администратор</a>
+        </div>
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
