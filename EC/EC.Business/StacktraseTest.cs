@@ -6,11 +6,17 @@ using System.Threading.Tasks;
 
 namespace EC.Business
 {
-    public static class StacktraseTest
+    public interface IStacktraseTest
     {
-        public static void TestMethod()
+        void TestMethod();
+    }
+
+    public class StacktraseTest : IStacktraseTest
+    {
+        public void TestMethod()
         {
             throw new ArgumentException();
         }
     }
 }
+

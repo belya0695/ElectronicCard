@@ -4,7 +4,7 @@ using System.Linq;
 using log4net;
 using log4net.Config;
 
-namespace EC.Common
+namespace EC.Common.Loggers
 {
     public class Logger : ILogger
     {
