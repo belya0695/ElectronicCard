@@ -1,0 +1,2 @@
+INSERT INTO [EC.DB].dbo.doctors(first_name, middle_name, last_name, post_id)
+values ('Hadassah','Alan','Madeline',11),('Chancellor','Dennis','Dacey',17),('Roth','Calvin','Cullen',17),('Timon','Donovan','Dominic',16),('Hyacinth','Oleg','Kasimir',15),('Taylor','Samson','Jena',12),('Emerson','Arsenio','Raymond',13),('Hillary','Marsden','Mannix',16),('Honorato','Wayne','Rebekah',11),('Isaiah','Cain','Yuri',16)

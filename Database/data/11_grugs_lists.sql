@@ -1,0 +1,2 @@
+INSERT INTO [EC.DB].dbo.grugs_lists (record_id, drug_id, administration_mode, treatment_duration)
+values (3,17,'in lobortis tellus justo sit',27),(4,13,'vitae velit egestas lacinia.',15),(5,16,'lobortis mauris. Suspendisse aliquet molestie',19),(6,16,'sit amet ante. Vivamus',28),(7,10,'est. Nunc laoreet lectus quis massa.',19),(8,14,'sit amet ante. Vivamus non',13),(9,16,'elit sed consequat auctor,',13),(10,16,'Aenean euismod mauris eu',8),(11,18,'id, erat. Etiam vestibulum massa',6),(12,16,'magna a tortor. Nunc',10)
