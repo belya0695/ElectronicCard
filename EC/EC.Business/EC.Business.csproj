@@ -58,8 +58,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Container\BusinessRegistre.cs" />
+    <Compile Include="Container\BusinessRegistry.cs" />
+    <Compile Include="Interfaces\IAdvProvider.cs" />
+    <Compile Include="Interfaces\IRecordProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\AdvProvider.cs" />
+    <Compile Include="Providers\RecordProvider.cs" />
     <Compile Include="StacktraseTest.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +74,11 @@
       <Project>{9fe5c84a-82cf-4a05-8c66-a73f8e4b37db}</Project>
       <Name>EC.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EC.DA\EC.DA.csproj">
+      <Project>{c604a0a9-29ec-43d9-aa9f-f840f39b800a}</Project>
+      <Name>EC.DA</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

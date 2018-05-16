@@ -1,8 +1,14 @@
-﻿
+﻿@model IEnumerable<EC.Common.Models.Record>
 @{
     ViewBag.Title = "GetRecordsList";
     Layout = "~/Views/_MainHeader.cshtml";
 }
 
-<h2>Записи врачей</h2>
-
+<h2 class="center-elements">Records</h2>
+<div class="date">
+    @foreach (var rec in Model)
+    {
+        @Html.ActionLink(rec.date.Date.ToString("d"), "GetRecord", new { id = rec.recordId })
+        <br />
+    }
+</div>
