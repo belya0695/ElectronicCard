@@ -20,18 +20,23 @@ namespace EC.Web.Controllers
         }
 
         // GET: Home
-        public ActionResult Index()
+        public ActionResult StartPage()
         {
             try
             {
-                _stacktraseTest.TestMethod();
+                //_stacktraseTest.TestMethod();
                 return View();
             }
             catch (ArgumentException ex)
             {
                 _logger.LogInfo(ex.Message);
                 return Redirect("/Content/Exceptions/500.html");
-            }            
+            }
+        }
+
+        public ActionResult EditorStartPage()
+        {
+            return View();
         }
     }
 }

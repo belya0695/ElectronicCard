@@ -116,6 +116,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PatientController.cs" />
+    <Compile Include="Controllers\RecordsController.cs" />
     <Compile Include="DependencyResolution\ControllerConvention.cs" />
     <Compile Include="DependencyResolution\DefaultRegistry.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
@@ -132,8 +134,13 @@
       <SubType>Designer</SubType>
     </Content>
     <None Include="packages.config" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\_Header.cshtml" />
+    <Content Include="Views\Home\StartPage.cshtml" />
+    <Content Include="Views\_MainHeader.cshtml" />
+    <Content Include="Views\_EditorHeader.cshtml" />
+    <Content Include="Views\Records\GetRecordsList.cshtml" />
+    <Content Include="Views\Patient\GetPatientList.cshtml" />
+    <Content Include="Views\Home\EditorStartPage.cshtml" />
+    <Content Include="Views\Records\SearchPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
