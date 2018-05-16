@@ -60,6 +60,8 @@
     <Reference Include="StructureMap.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\structuremap.web.3.1.0.133\lib\net40\StructureMap.Web.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -106,6 +108,7 @@
   <ItemGroup>
     <Content Include="Content\Exceptions\exception-page-style.css" />
     <Content Include="Content\Exceptions\500.html" />
+    <Content Include="Content\Images\noAdv.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
@@ -115,6 +118,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\StructuremapMvc.cs" />
+    <Compile Include="Controllers\AdvController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
     <Compile Include="Controllers\RecordsController.cs" />
@@ -141,6 +145,9 @@
     <Content Include="Views\Patient\GetPatientList.cshtml" />
     <Content Include="Views\Home\EditorStartPage.cshtml" />
     <Content Include="Views\Records\SearchPage.cshtml" />
+    <Content Include="Views\Adv\AdvBlock.cshtml" />
+    <Content Include="Views\Records\GetRecord.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -165,6 +172,9 @@
       <Project>{dbcb533f-9506-4538-b2b7-ce08215e6d2c}</Project>
       <Name>EC.Dependencies</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

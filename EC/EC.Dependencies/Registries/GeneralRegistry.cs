@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EC.Business.Container;
 using EC.Common.Container;
+using EC.DA.Container;
 
 namespace EC.Dependencies.Registries
 {
@@ -17,6 +18,7 @@ namespace EC.Dependencies.Registries
             {
                 s.Assembly(typeof(BusinessRegistry).Assembly);
                 s.Assembly(typeof(CommonRegistry).Assembly);
+                s.Assembly(typeof(DARegistry).Assembly);
                 s.WithDefaultConventions();
             });
             

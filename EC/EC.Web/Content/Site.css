@@ -3,15 +3,15 @@
     font-family: arial;
 }
 
-
 header {
     background: #337AB7;
     overflow: hidden;
+    margin-bottom: 20px;
 }
 
 .center-elements {
     margin: auto;
-    width: 950px;
+    width: 900px;
 }
 
 header a {
@@ -22,10 +22,10 @@ header a {
     text-decoration: none;
 }
 
-header a:hover {
-    background: #fff;
-    color: #000;
-}
+    header a:hover {
+        background: #fff;
+        color: #000;
+    }
 
 .left-bar-ref {
     text-decoration: none;
@@ -42,14 +42,75 @@ header a:hover {
 
 .right-bar-adv {
     width: 150px;
-    height: 100px;
     float: right;
-    background-color: antiquewhite;
+    background-color: azure;
+    margin-left: 30px;
+    margin-top: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
-h2{
+    .right-bar-adv img {
+        width: 150px;
+    }
+
+h2 {
     width: 300px;
     display: inline-block;
     margin-left: 30px;
     margin-top: 5px;
 }
+
+.description-text {
+    text-align: center;
+    padding-top: 20px;
+    border-width: 1px;
+    border-top-style: solid;
+    border-color: #337AB7;
+    margin: 10px;
+    width: 700px;
+}
+
+ol, ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.col-1 {
+    text-align: right;
+    margin-right: 30px;
+    color: #222;
+    font-weight: 600;
+    display: block;
+}
+
+.col-2 {
+    text-align: left;
+    display: block;
+}
+
+.record-text {
+    margin-top: 30px;
+    display: flex;
+}
+
+.date {
+    padding-top: 10px;
+}
+
+    .date a {
+        color: #000;
+        text-decoration: none;
+        width: 200px;
+        text-align: center;
+        margin: 5px;
+    }
+
+        .date a:hover {
+            border-style: solid;
+            border-width: 1px;
+            border-color: #000;
+            font-weight: 600;
+            text-decoration: none;
+        }

@@ -3,10 +3,16 @@
     Layout = "~/Views/_MainHeader.cshtml";
 }
 
-<div>
-    <div class="right-bar-adv">
-        <div class="adv-block"></div>
-        <div class="adv-block"></div>
-        <div class="adv-block"></div>
-    </div>
+<div class="right-bar-adv">
+    @Html.Action("AdvBlock", "Adv")
 </div>
+
+
+<div class="description-text">
+    Electronic Card is a system that is designed to record health status.
+    It contains information about patients with their diagnoses and prescribed
+    treatment by qualified doctors. The system can be used by patients to look
+    at their medical history, as well as doctors to analyze the patients'
+    health status for more accurate and quick treatment and recovery.
+</div>
+
