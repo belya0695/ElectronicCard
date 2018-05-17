@@ -1,10 +1,17 @@
 ﻿using System;
 using EC.DA.AvdService;
+using EC.Common.Loggers;
 
 namespace EC.DA.Clients
 {
     public class AdvClient : IAdvClient
     {
+        private readonly ILogger _logger;
+
+        public AdvClient(ILogger logger)
+        {
+            _logger = logger;
+        }
         public Advertising[] GetAdvertising(int count)
         {
             try
@@ -19,8 +26,9 @@ namespace EC.DA.Clients
                 }
                 return adv;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                _logger.LogError(e);
                 return null;
             }
         }

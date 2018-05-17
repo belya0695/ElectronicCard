@@ -42,18 +42,6 @@ namespace EC.DA.Repositories
                     CommandType = System.Data.CommandType.StoredProcedure
                 };
                 var reader = command.ExecuteReader();
-
-                //if (reader.HasRows)
-                //{
-                //    while (reader.Read())
-                //    {
-                //        int id = reader.GetInt32(0);
-                //        string name = reader.GetString(1);
-                //        int age = reader.GetInt32(2);
-                //        Console.WriteLine("{0} \t{1} \t{2}", id, name, age);
-                //    }
-                //}
-                reader.Close();
             }
         }
     }

@@ -8,19 +8,19 @@ namespace EC.Common.Models
 {
     public class Record
     {
-        public int recordId;
-        public DateTime date;
-        public int patientId;
-        public string patientFirstName;
-        public string patientMiddleName;
-        public string patientLastName;
-        public string diagnosisName;
-        public int sickLeaveId;
-        public bool IsSickLeaveIssued;
-        public DateTime validFrom;
-        public DateTime validTo;
-        public string doctorsFirstName;
-        public string doctorsLastName;
-        public string doctorsPost;
+        public int recordId { get; set; }
+        public DateTime date { get; set; }
+        public int patientId { get; set; }
+        public string patientFirstName { get; set; }
+        public string patientMiddleName { get; set; }
+        public string patientLastName { get; set; }
+        public string diagnosisName { get; set; }
+        public int sickLeaveId { get; set; }
+        public bool IsSickLeaveIssued { get; set; }
+        public DateTime validFrom { get; set; }
+        public DateTime validTo { get; set; }
+        public string doctorsFirstName { get; set; }
+        public string doctorsLastName { get; set; }
+        public string doctorsPost { get; set; }
     }
 }

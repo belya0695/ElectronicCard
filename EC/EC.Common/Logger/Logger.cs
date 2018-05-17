@@ -23,12 +23,12 @@ namespace EC.Common.Loggers
 
         public void LogError(Exception exception)
         {
-            throw new NotImplementedException();
+            log.Error(exception);
         }
 
         public void LogError(string message)
         {
-            throw new NotImplementedException();
+            log.Error(message);
         }
     }
 }
