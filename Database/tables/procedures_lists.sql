@@ -1,7 +1,7 @@
 USE [EC.DB]
 GO
 
-/****** Object:  Table [dbo].[procedures_lists]    Script Date: 13.05.2018 20:48:38 ******/
+/****** Object:  Table [dbo].[procedures_lists]    Script Date: 27.05.2018 17:33:41 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -30,6 +30,7 @@ GO
 
 ALTER TABLE [dbo].[procedures_lists]  WITH CHECK ADD  CONSTRAINT [FK_procedures_lists_medical_records] FOREIGN KEY([record_id])
 REFERENCES [dbo].[medical_records] ([record_id])
+ON UPDATE CASCADE
 GO
 
 ALTER TABLE [dbo].[procedures_lists] CHECK CONSTRAINT [FK_procedures_lists_medical_records]
