@@ -1,7 +1,7 @@
 USE [EC.DB]
 GO
 
-/****** Object:  Table [dbo].[roles]    Script Date: 27.05.2018 17:34:22 ******/
+/****** Object:  Table [dbo].[roles]    Script Date: 27.05.2018 18:40:14 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -9,7 +9,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[roles](
-	[role_id] [int] NOT NULL,
+	[role_id] [int] IDENTITY(1,1) NOT NULL,
 	[role_name] [nvarchar](50) NOT NULL,
  CONSTRAINT [PK_roles] PRIMARY KEY CLUSTERED 
 (
