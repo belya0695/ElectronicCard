@@ -1,7 +1,7 @@
 USE [EC.DB]
 GO
 
-/****** Object:  Table [dbo].[medical_records]    Script Date: 13.05.2018 20:47:48 ******/
+/****** Object:  Table [dbo].[medical_records]    Script Date: 27.05.2018 17:32:35 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -29,23 +29,23 @@ GO
 ALTER TABLE [dbo].[medical_records] CHECK CONSTRAINT [FK_medical_records_diagnoses]
 GO
 
-ALTER TABLE [dbo].[medical_records]  WITH CHECK ADD  CONSTRAINT [FK_medical_records_doctors] FOREIGN KEY([doctor_id])
-REFERENCES [dbo].[doctors] ([doctor_id])
-GO
-
-ALTER TABLE [dbo].[medical_records] CHECK CONSTRAINT [FK_medical_records_doctors]
-GO
-
-ALTER TABLE [dbo].[medical_records]  WITH CHECK ADD  CONSTRAINT [FK_medical_records_patients] FOREIGN KEY([patient_id])
-REFERENCES [dbo].[patients] ([patient_id])
-GO
-
-ALTER TABLE [dbo].[medical_records] CHECK CONSTRAINT [FK_medical_records_patients]
-GO
-
 ALTER TABLE [dbo].[medical_records]  WITH CHECK ADD  CONSTRAINT [FK_medical_records_sick_leaves] FOREIGN KEY([sick_leave_id])
 REFERENCES [dbo].[sick_leaves] ([sick_leave_id])
 GO
 
 ALTER TABLE [dbo].[medical_records] CHECK CONSTRAINT [FK_medical_records_sick_leaves]
+GO
+
+ALTER TABLE [dbo].[medical_records]  WITH CHECK ADD  CONSTRAINT [FK_medical_records_users] FOREIGN KEY([patient_id])
+REFERENCES [dbo].[users] ([user_id])
+GO
+
+ALTER TABLE [dbo].[medical_records] CHECK CONSTRAINT [FK_medical_records_users]
+GO
+
+ALTER TABLE [dbo].[medical_records]  WITH CHECK ADD  CONSTRAINT [FK_medical_records_users1] FOREIGN KEY([doctor_id])
+REFERENCES [dbo].[users] ([user_id])
+GO
+
+ALTER TABLE [dbo].[medical_records] CHECK CONSTRAINT [FK_medical_records_users1]
 GO

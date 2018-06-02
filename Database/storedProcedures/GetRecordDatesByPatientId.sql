@@ -1,13 +1,10 @@
 USE [EC.DB]
 GO
-
-/****** Object:  StoredProcedure [dbo].[GetRecordDatesByPatientId]    Script Date: 15.05.2018 23:09:14 ******/
+/****** Object:  StoredProcedure [dbo].[GetRecordDatesByPatientId]    Script Date: 02.06.2018 18:03:12 ******/
 SET ANSI_NULLS ON
 GO
-
 SET QUOTED_IDENTIFIER ON
 GO
-
 CREATE PROCEDURE [dbo].[GetRecordDatesByPatientId]
 @patient_id int
 AS

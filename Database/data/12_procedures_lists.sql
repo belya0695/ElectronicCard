@@ -1,2 +1,4 @@
 INSERT INTO [EC.DB].dbo.procedures_lists (record_id, procedure_id, administration_mode, treatment_duration)
-values (3,8,'sit amet, dapibus id,',9),(4,6,'natoque penatibus et magnis dis',8),(5,10,'Nam interdum enim non',8),(6,9,'velit. Aliquam nisl. Nulla eu',7),(7,10,'rhoncus. Proin nisl',6),(8,6,'enim. Nunc ut erat. Sed nunc',14),(9,8,'tempor arcu. Vestibulum ut eros',6),(10,10,'risus. Donec egestas. Duis ac arcu.',14),(11,10,'pellentesque, tellus sem mollis dui, in',4),(12,10,'nulla. Donec non justo. Proin',7)
+values (1,1,'sit amet, dapibus id,',9),(2,2,'natoque penatibus et magnis dis',8),(3,3,'Nam interdum enim non',8),
+(4,4,'velit. Aliquam nisl. Nulla eu',7),(5,5,'rhoncus. Proin nisl',6),
+(6,1,'enim. Nunc ut erat. Sed nunc',14),(7,2,'tempor arcu. Vestibulum ut eros',6),(8,1,'risus. Donec egestas. Duis ac arcu.',14)
