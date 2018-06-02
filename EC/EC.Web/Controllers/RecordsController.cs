@@ -19,7 +19,7 @@ namespace EC.Web.Controllers
         // GET: Records
         public ActionResult GetRecordsList()
         {
-            return View(_recordProvider.GetRecordDatesByPatientId(13));//TODO id
+            return View(_recordProvider.GetRecordDatesByPatientId(8));//TODO id
         }
 
         public ActionResult GetRecord(int id)

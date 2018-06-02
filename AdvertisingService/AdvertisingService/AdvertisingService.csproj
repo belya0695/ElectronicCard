@@ -62,6 +62,15 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\9URiEcU5hBw.jpg" />
+    <Content Include="Images\D6ekeRUlCk4.jpg" />
+    <Content Include="Images\dc9LsFUMT8Y.jpg" />
+    <Content Include="Images\gFgOOjjda3I.jpg" />
+    <Content Include="Images\hrxRfJ4VMCk.jpg" />
+    <Content Include="Images\Lb_6m8ECnfc.jpg" />
+    <Content Include="Images\q1gDgnsvhPY.jpg" />
+    <Content Include="Images\XT7O5RQp6qI.jpg" />
+    <Content Include="Images\_HbMlzn8Y3w.jpg" />
     <Content Include="Service.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
