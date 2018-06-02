@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using EC.DA.Interfaces;
 using EC.Common.Models;
 using System.Data.SqlClient;

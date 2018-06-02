@@ -38,7 +38,6 @@ namespace AdvertisingService.Services
 					Extensions = Path.GetExtension(imagePath)
 				};
 			}
-
 			return advertising;
 		}
 	}

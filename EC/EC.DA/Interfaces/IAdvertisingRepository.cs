@@ -1,14 +1,9 @@
-﻿using EC.DA.AvdService;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EC.Common.Models;
 
 namespace EC.DA.Interfaces
 {
     public interface IAdvertisingRepository
     {
-        Advertising[] GetAdvertisings(int count);
+        Image[] GetAdvertisings(int count);
     }
 }

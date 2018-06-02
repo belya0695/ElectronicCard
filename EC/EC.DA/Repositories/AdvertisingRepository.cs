@@ -1,7 +1,7 @@
-﻿using EC.DA.AvdService;
+﻿using EC.Common.Models;
+using EC.DA.AvdService;
 using EC.DA.Clients;
 using EC.DA.Interfaces;
-using System;
 
 namespace EC.DA.Repositories
 {
@@ -14,9 +14,24 @@ namespace EC.DA.Repositories
             _advClient = advClient;
         }
 
-        public Advertising[] GetAdvertisings(int count)
+        public Image[] GetAdvertisings(int count)
         {
-            return _advClient.GetAdvertising(count);
+            Advertising[] adv = _advClient.GetAdvertising(count);
+            if (adv != null)
+            {               
+                Image[] advImages = new Image[count];
+                for (int i = 0; i < count; i++)
+                {
+                    advImages[i] = new Image();
+                    advImages[i].ImageData = adv[i].ImageData;
+                    advImages[i].Extensions = adv[i].Extensions;
+                }
+                return advImages;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
