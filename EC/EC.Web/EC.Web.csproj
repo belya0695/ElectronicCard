@@ -134,8 +134,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="logger.config">
-      <SubType>Designer</SubType>
+    <Content Include="..\EC.Common\log4net.config">
+      <Link>log4net.config</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="packages.config" />
     <Content Include="Views\Home\StartPage.cshtml" />

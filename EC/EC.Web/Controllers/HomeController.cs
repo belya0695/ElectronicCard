@@ -21,6 +21,7 @@ namespace EC.Web.Controllers
         {
             try
             {
+                throw new ArgumentException("sdsfsdffsdf");
                 //_stacktraseTest.TestMethod();
                 return View();
             }
