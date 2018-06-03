@@ -8,7 +8,7 @@ namespace AdvertisingService.Services
 {
 	public class AdvertisingProvider : IAdvertisingProvider
 	{
-		private const string imageCatalog = "App_Data";
+		private const string imageCatalog = "Images";
 		private readonly string imageDirectory = AppDomain.CurrentDomain.BaseDirectory + imageCatalog + "\\";
 		private readonly string[] extensions = new string[] { "*.gif", "*.png", "*.jpg", "*.jpeg" };
 
@@ -38,7 +38,6 @@ namespace AdvertisingService.Services
 					Extensions = Path.GetExtension(imagePath)
 				};
 			}
-
 			return advertising;
 		}
 	}

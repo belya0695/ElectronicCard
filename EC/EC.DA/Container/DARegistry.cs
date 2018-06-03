@@ -12,7 +12,6 @@ namespace EC.DA.Container
             For<IRecordRepository>().Use<RecordRepository>();
             For<IAdvClient>().Use<AdvClient>();
             For<IAdvertisingRepository>().Use<AdvertisingRepository>();
-            For<IPatientRepository>().Use<PatientRepository>();
         }
     }
 }

@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using EC.Business.Interfaces;
-using EC.Common.Models;
 
 namespace EC.Web.Controllers
 {
@@ -16,10 +11,10 @@ namespace EC.Web.Controllers
         {
             _recordProvider = recordProvider;
         }
-        // GET: Records
+
         public ActionResult GetRecordsList()
         {
-            return View(_recordProvider.GetRecordDatesByPatientId(13));//TODO id
+            return View(_recordProvider.GetRecordDatesByPatientId(8));//TODO id
         }
 
         public ActionResult GetRecord(int id)
