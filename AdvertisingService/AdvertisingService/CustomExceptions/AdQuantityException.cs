@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace AdvertisingService.Custom_Exceptions
+namespace AdvertisingService.CustomExceptions
 {
     [DataContract]
     class AdQuantityException
