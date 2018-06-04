@@ -3,7 +3,7 @@
 namespace AdvertisingService.CustomExceptions
 {
     [DataContract]
-    class AdQuantityException
+    public class AdQuantityException
     {
         [DataMember]
         public string CustomError;

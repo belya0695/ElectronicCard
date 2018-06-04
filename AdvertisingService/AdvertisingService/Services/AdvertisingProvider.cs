@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.ServiceModel;
-using AdvertisingService.CustomExceptions;
 using AdvertisingService.Dto;
 
 namespace AdvertisingService.Services
@@ -18,7 +17,7 @@ namespace AdvertisingService.Services
         {
             if (quantity < 1)
             {
-                throw new FaultException<AdQuantityException>(new AdQuantityException("Quantity is not valid."));
+                throw new FaultException("Quantity = " + quantity + ". It must be > 0.");
             }
 
             Advertising[] advertising = new Advertising[quantity];
@@ -32,7 +31,7 @@ namespace AdvertisingService.Services
 
             if (images.Count() == 0)
             {
-                throw new FaultException<NoImageException>(new NoImageException("No images in the specified folder"));
+                throw new FaultException("No images in the specified folder: " + imageDirectory);
             }
 
             for (int i = 0; i < quantity; i++)
