@@ -1,0 +1,33 @@
+﻿@model EC.Common.Models.Record
+@{
+    ViewBag.Title = "GetRecordsList";
+    Layout = "~/Views/_MainHeader.cshtml";
+}
+
+<h2 class="center-elements">Record, @Model.patientFirstName @Model.patientMiddleName @Model.patientLastName, @Model.date.Date.ToString("d")</h2>
+<div class="record-text">
+    <ul class="col-1">
+        <li>Diagnosis</li>
+        <li>Is Sick Leave Issued</li>
+        <li>Sick Leave valid From</li>
+        <li>Sick Leave valid to</li>
+        <li>Doctors Name</li>
+        <li>Doctors Post</li>
+    </ul>
+    <ul class="col-2">
+        <li>@Model.diagnosisName</li>
+        @if (Model.IsSickLeaveIssued)
+        {
+            <li>Yes</li>
+            <li>@Model.validFrom.Date.ToString("d")</li>
+            <li>@Model.validTo.Date.ToString("d")</li>
+        }
+        else
+        {
+            <li>No</li>
+        }
+        <li></li>
+        <li>@Model.doctorsFirstName @Model.doctorsLastName</li>
+        <li>@Model.doctorsPost</li>
+    </ul>
+</div>

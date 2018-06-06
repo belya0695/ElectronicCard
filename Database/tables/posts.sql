@@ -1,0 +1,19 @@
+USE [EC.DB]
+GO
+
+/****** Object:  Table [dbo].[posts]    Script Date: 13.05.2018 20:48:28 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[posts](
+	[post_id] [int] IDENTITY(1,1) NOT NULL,
+	[post_name] [nvarchar](100) NOT NULL,
+ CONSTRAINT [PK_posts] PRIMARY KEY CLUSTERED 
+(
+	[post_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO

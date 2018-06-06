@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header>
+        <div class="center-elements">
+            <a href="~/Home/StartPage">Start Page</a>
+            <a href="~/Records/GetRecordsList">Medical Records</a>
+            <a href="">Personal Information</a>
+            <a href="~/Records/SearchPage">Search</a>
+            <a href="~/Patient/GetPatientList">Pacients list</a>
+            <a href="~/Home/EditorStartPage">Editor</a>
+            <a href="~/Home/EditorStartPage">Administrator</a>
+        </div>
+    </header>
+    <div class="center-elements">
+        @RenderBody()
+    </div>
+</body>
+</html>
