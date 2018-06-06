@@ -59,11 +59,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Container\BusinessRegistry.cs" />
+    <Compile Include="Enums\LoginResult.cs" />
     <Compile Include="Interfaces\IAdvProvider.cs" />
     <Compile Include="Interfaces\IRecordProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\AdvProvider.cs" />
     <Compile Include="Providers\RecordProvider.cs" />
+    <Compile Include="Services\IAuthService.cs" />
     <Compile Include="StacktraseTest.cs" />
   </ItemGroup>
   <ItemGroup>
