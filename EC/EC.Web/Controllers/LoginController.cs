@@ -1,20 +1,20 @@
-﻿using EC.Business.Enums;
-using EC.Common.Loggers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System;
 using System.Web.Mvc;
+using EC.Business.Enums;
+using EC.Business.Services;
+using EC.Common.Log;
 
 namespace EC.Web.Controllers
 {
     public class LoginController : Controller
     {
         private readonly ILogger _logger;
+        private readonly IAuthService _authService;
 
-        public LoginController(ILogger logger)
+        public LoginController(ILogger logger, IAuthService authService)
         {
             _logger = logger;
+            _authService = authService;
         }
 
         public ActionResult Login()
@@ -28,7 +28,7 @@ namespace EC.Web.Controllers
             LoginResult result;
             try
             {
-                result = loginService.Login(login, password);
+                result = _authService.Login(login, password);
             }
             catch (Exception ex)
             {

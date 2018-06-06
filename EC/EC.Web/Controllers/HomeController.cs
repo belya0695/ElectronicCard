@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
-using EC.Common.Loggers;
+using EC.Common.Log;
 using EC.Business;
 
 namespace EC.Web.Controllers

@@ -1,8 +1,7 @@
-﻿using EC.Common.Loggers;
+﻿using EC.Common.Log;
 using EC.Common.Models;
 using EC.DA.AvdService;
 using EC.DA.Clients;
-using EC.DA.Interfaces;
 using System.ServiceModel;
 
 namespace EC.DA.Repositories
@@ -26,9 +25,11 @@ namespace EC.DA.Repositories
                 Image[] advImages = new Image[count];
                 for (int i = 0; i < count; i++)
                 {
-                    advImages[i] = new Image();
-                    advImages[i].ImageData = adv[i].ImageData;
-                    advImages[i].Extensions = adv[i].Extensions;
+                    advImages[i] = new Image
+                    {
+                        ImageData = adv[i].ImageData,
+                        Extensions = adv[i].Extensions
+                    };
                 }
                 return advImages;
             }

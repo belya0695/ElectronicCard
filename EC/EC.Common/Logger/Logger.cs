@@ -2,7 +2,7 @@
 using log4net;
 using log4net.Config;
 
-namespace EC.Common.Loggers
+namespace EC.Common.Log
 {
     public class Logger : ILogger
     {

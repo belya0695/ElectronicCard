@@ -1,7 +1,6 @@
-﻿using EC.DA.AvdService;
-using EC.Common.Models;
+﻿using EC.Common.Models;
 
-namespace EC.Business.Interfaces
+namespace EC.Business.Providers
 {
     public interface IAdvProvider
     {

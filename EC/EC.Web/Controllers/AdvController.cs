@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Linq;
 using System.Web.Mvc;
-using EC.Business.Interfaces;
+using EC.Business.Providers;
 using EC.Common.Models;
 
 namespace EC.Web.Controllers

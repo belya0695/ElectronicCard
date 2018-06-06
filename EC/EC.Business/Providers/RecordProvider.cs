@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using EC.Business.Interfaces;
 using EC.Common.Models;
-using EC.DA.Interfaces;
+using EC.DA.Repositories;
 
 namespace EC.Business.Providers
 {

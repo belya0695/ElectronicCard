@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using EC.Common.Models;
 
-namespace EC.Business.Interfaces
+namespace EC.Business.Providers
 {
     public interface IRecordProvider
     {
