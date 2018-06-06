@@ -16,7 +16,6 @@ namespace EC.Web.Controllers
             _stacktraseTest = stacktraseTest;
         }
 
-        // GET: Home
         public ActionResult StartPage()
         {
             try

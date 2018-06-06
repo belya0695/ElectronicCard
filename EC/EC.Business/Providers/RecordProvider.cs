@@ -9,7 +9,7 @@ namespace EC.Business.Providers
     public class RecordProvider : IRecordProvider
     {
         private readonly IRecordRepository _recordRepository;
-        
+
         public RecordProvider(IRecordRepository recordRepository)
         {
             _recordRepository = recordRepository;
@@ -20,12 +20,12 @@ namespace EC.Business.Providers
             return _recordRepository.GetRecordById(recordId);
         }
 
-        public List<Record> GetRecordByPatientIdAndDate(int patientId, DateTime recordDate)
+        public Record[] GetRecordByPatientIdAndDate(int patientId, DateTime recordDate)
         {
             return _recordRepository.GetRecordByPatientIdAndDate(patientId, recordDate);
         }
 
-        public List<Record> GetRecordDatesByPatientId(int patientId)
+        public Record[] GetRecordDatesByPatientId(int patientId)
         {
             return _recordRepository.GetRecordDatesByPatientId(patientId);
         }

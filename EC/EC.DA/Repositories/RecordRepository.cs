@@ -64,7 +64,7 @@ namespace EC.DA.Repositories
             return record;
         }
 
-        public List<Record> GetRecordByPatientIdAndDate(int patientId, DateTime recordDate)
+        public Record[] GetRecordByPatientIdAndDate(int patientId, DateTime recordDate)
         {
             List<Record> recordsList = new List<Record>();
 
@@ -118,10 +118,10 @@ namespace EC.DA.Repositories
                 }
                 reader.Close();
             }
-            return recordsList;
+            return recordsList.ToArray();
         }
 
-        public List<Record> GetRecordDatesByPatientId(int patientId)
+        public Record[] GetRecordDatesByPatientId(int patientId)
         {
             List<Record> recordsList = new List<Record>();
 
@@ -156,7 +156,7 @@ namespace EC.DA.Repositories
                 }
                 reader.Close();
             }
-            return recordsList;
+            return recordsList.ToArray();
         }
     }
 }

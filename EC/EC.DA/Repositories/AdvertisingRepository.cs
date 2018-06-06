@@ -1,24 +1,28 @@
-﻿using EC.Common.Models;
+﻿using EC.Common.Loggers;
+using EC.Common.Models;
 using EC.DA.AvdService;
 using EC.DA.Clients;
 using EC.DA.Interfaces;
+using System.ServiceModel;
 
 namespace EC.DA.Repositories
 {
     public class AdvertisingRepository : IAdvertisingRepository
     {
         private readonly IAdvClient _advClient;
+        private readonly ILogger _logger;
 
-        public AdvertisingRepository(IAdvClient advClient)
+        public AdvertisingRepository(IAdvClient advClient, ILogger logger)
         {
             _advClient = advClient;
+            _logger = logger;
         }
 
         public Image[] GetAdvertisings(int count)
         {
-            Advertising[] adv = _advClient.GetAdvertising(count);
-            if (adv != null)
-            {               
+            try
+            {
+                Advertising[] adv = _advClient.GetAdvertising(count);
                 Image[] advImages = new Image[count];
                 for (int i = 0; i < count; i++)
                 {
@@ -28,10 +32,11 @@ namespace EC.DA.Repositories
                 }
                 return advImages;
             }
-            else
+            catch (FaultException ex)
             {
+                _logger.LogError(ex.Reason.ToString());
                 return null;
-            }
+            }             
         }
     }
 }
