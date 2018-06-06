@@ -1,0 +1,78 @@
+2018-06-04 22:18:03,081  ERROR System.ServiceModel.EndpointNotFoundException: Прослушивание на http://localhost:2222/Service.svc не выполняла ни одна конечная точка, которая могла бы принять сообщение. Среди прочих причин это могло быть вызвано неправильным адресом или действием SOAP. Подробнее см. в описании InnerException (если имеется). ---> System.Net.WebException: Невозможно соединиться с удаленным сервером ---> System.Net.Sockets.SocketException: Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение 127.0.0.1:2222
+   в System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   в System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- Конец трассировки внутреннего стека исключений ---
+   в System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   в System.Net.HttpWebRequest.GetRequestStream()
+   в System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- Конец трассировки внутреннего стека исключений ---
+
+Server stack trace: 
+   в System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   в System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   в System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   в System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   в System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   в System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   в System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   в System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   в System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   в System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   в EC.DA.AvdService.IAdvertisingProvider.GetAdvertising(Int32 quantity)
+   в EC.DA.AvdService.AdvertisingProviderClient.GetAdvertising(Int32 quantity) в C:\Users\HanSolo\Desktop\ElectronicCard\EC\EC.DA\Connected Services\AvdService\Reference.cs:строка 116
+   в EC.DA.Clients.AdvClient.GetAdvertising(Int32 count) в C:\Users\HanSolo\Desktop\ElectronicCard\EC\EC.DA\Clients\AdvClient.cs:строка 24
+2018-06-04 22:18:03,892  ERROR System.ServiceModel.EndpointNotFoundException: Прослушивание на http://localhost:2222/Service.svc не выполняла ни одна конечная точка, которая могла бы принять сообщение. Среди прочих причин это могло быть вызвано неправильным адресом или действием SOAP. Подробнее см. в описании InnerException (если имеется). ---> System.Net.WebException: Невозможно соединиться с удаленным сервером ---> System.Net.Sockets.SocketException: Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение 127.0.0.1:2222
+   в System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   в System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- Конец трассировки внутреннего стека исключений ---
+   в System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   в System.Net.HttpWebRequest.GetRequestStream()
+   в System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- Конец трассировки внутреннего стека исключений ---
+
+Server stack trace: 
+   в System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   в System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   в System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   в System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   в System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   в System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   в System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   в System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   в System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   в System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   в EC.DA.AvdService.IAdvertisingProvider.GetAdvertising(Int32 quantity)
+   в EC.DA.AvdService.AdvertisingProviderClient.GetAdvertising(Int32 quantity) в C:\Users\HanSolo\Desktop\ElectronicCard\EC\EC.DA\Connected Services\AvdService\Reference.cs:строка 116
+   в EC.DA.Clients.AdvClient.GetAdvertising(Int32 count) в C:\Users\HanSolo\Desktop\ElectronicCard\EC\EC.DA\Clients\AdvClient.cs:строка 24
+2018-06-04 22:18:00,135  ERROR System.ServiceModel.EndpointNotFoundException: Прослушивание на http://localhost:2222/Service.svc не выполняла ни одна конечная точка, которая могла бы принять сообщение. Среди прочих причин это могло быть вызвано неправильным адресом или действием SOAP. Подробнее см. в описании InnerException (если имеется). ---> System.Net.WebException: Невозможно соединиться с удаленным сервером ---> System.Net.Sockets.SocketException: Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение 127.0.0.1:2222
+   в System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   в System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- Конец трассировки внутреннего стека исключений ---
+   в System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   в System.Net.HttpWebRequest.GetRequestStream()
+   в System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- Конец трассировки внутреннего стека исключений ---
+
+Server stack trace: 
+   в System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   в System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   в System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   в System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   в System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   в System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   в System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   в System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   в System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   в System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   в EC.DA.AvdService.IAdvertisingProvider.GetAdvertising(Int32 quantity)
+   в EC.DA.AvdService.AdvertisingProviderClient.GetAdvertising(Int32 quantity) в C:\Users\HanSolo\Desktop\ElectronicCard\EC\EC.DA\Connected Services\AvdService\Reference.cs:строка 116
+   в EC.DA.Clients.AdvClient.GetAdvertising(Int32 count) в C:\Users\HanSolo\Desktop\ElectronicCard\EC\EC.DA\Clients\AdvClient.cs:строка 24
+2018-06-04 22:18:53,768  ERROR AdvProvider. Smth wrong with service.
+2018-06-04 22:18:54,581  ERROR AdvProvider. Smth wrong with service.
+2018-06-04 22:18:54,987  ERROR AdvProvider. Smth wrong with service.
