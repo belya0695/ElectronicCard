@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Web.Mvc;
 using EC.Business.Providers;
+using EC.Web.AuthAttributes;
+using EC.Web.AuthAttributes.Models;
 
 namespace EC.Web.Controllers
 {
@@ -13,6 +15,7 @@ namespace EC.Web.Controllers
             _recordProvider = recordProvider;
         }
 
+        [Patient]
         public ActionResult GetRecordsList()
         {
             return View(_recordProvider.GetRecordDatesByPatientId(8));//TODO id
@@ -26,12 +29,7 @@ namespace EC.Web.Controllers
         public ActionResult GetRecordByPatientIdAndDate(int patientId, DateTime date)
         {
             ViewBag.Date = date.ToString("d");
-            return View(_recordProvider.GetRecordByPatientIdAndDate(patientId, date)); //TODO id во вьюхе ставится 8
-        }
-
-        public ActionResult SearchPage()
-        {
-            return View();
+            return View(_recordProvider.GetRecordByPatientIdAndDate(((UserPrincipal)User).UserId, date)); //TODO id во вьюхе ставится 8
         }
     }
 }

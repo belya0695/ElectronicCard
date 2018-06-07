@@ -131,6 +131,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
     <Compile Include="Controllers\RecordsController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="DependencyResolution\ControllerConvention.cs" />
     <Compile Include="DependencyResolution\DefaultRegistry.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
@@ -154,7 +155,6 @@
     <Content Include="Views\Records\GetRecordsList.cshtml" />
     <Content Include="Views\Patient\GetPatientList.cshtml" />
     <Content Include="Views\Home\EditorStartPage.cshtml" />
-    <Content Include="Views\Records\SearchPage.cshtml" />
     <Content Include="Views\Adv\AdvBlock.cshtml" />
     <Content Include="Views\Records\GetRecord.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
@@ -162,6 +162,7 @@
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Login\Denied.cshtml" />
+    <Content Include="Views\Search\SearchPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
