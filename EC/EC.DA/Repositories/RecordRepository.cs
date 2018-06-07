@@ -109,8 +109,7 @@ namespace EC.DA.Repositories
                             recordId = int.Parse(reader["record_id"].ToString()),
                             sickLeaveId = int.Parse(reader["sick_leave_id"].ToString()),
                             validFrom = DateTime.Parse(reader["valid_from"].ToString()),
-                            validTo = DateTime.Parse(reader["valid_to"].ToString()),
-                            patientId = int.Parse(reader["patient_id"].ToString())
+                            validTo = DateTime.Parse(reader["valid_to"].ToString())
                         };
                         recordsList.Add(record);
                     }
@@ -147,8 +146,7 @@ namespace EC.DA.Repositories
                     {
                         var record = new Record
                         {
-                            date = DateTime.Parse(reader["record_date"].ToString()),
-                            recordId = int.Parse(reader["record_id"].ToString())
+                            date = DateTime.Parse(reader["record_date"].ToString())
                         };
                         recordsList.Add(record);
                     }

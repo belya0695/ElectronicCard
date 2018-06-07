@@ -37,7 +37,7 @@ namespace EC.Web.Controllers
             }
             if (result == LoginResult.NoError)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("StartPage", "Home");
             }
             if (result == LoginResult.EmptyCredentials)
             {

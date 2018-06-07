@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using EC.Common.Models;
@@ -65,7 +66,7 @@ namespace EC.DA.Repositories
                 command.Parameters.Add(userIdParam);
 
                 var reader = command.ExecuteReader();
-
+                user.Roles = new List<Role>();
                 if (reader.HasRows)
                 {
                     while (reader.Read())
