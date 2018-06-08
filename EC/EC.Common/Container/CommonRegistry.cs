@@ -1,5 +1,5 @@
 ﻿using StructureMap.Configuration.DSL;
-using EC.Common.Loggers;
+using EC.Common.Log;
 
 namespace EC.Common.Container
 {

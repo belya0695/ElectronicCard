@@ -3,10 +3,10 @@ using System.Web.Mvc;
 
 namespace EC.Web.Controllers
 {
-    public class PatientController : Controller
+    public class SearchController : Controller
     {
-        [Doctor]
-        public ActionResult GetPatientList()
+        [Patient]
+        public ActionResult SearchPage()
         {
             return View();
         }

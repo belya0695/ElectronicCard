@@ -66,6 +66,8 @@
     <Compile Include="Logger\Logger.cs" />
     <Compile Include="Models\Image.cs" />
     <Compile Include="Models\Record.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

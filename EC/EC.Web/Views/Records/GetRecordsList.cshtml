@@ -8,7 +8,7 @@
 <div class="date">
     @foreach (var rec in Model)
     {
-        @Html.ActionLink(rec.date.Date.ToString("d"), "GetRecord", new { id = rec.recordId })
+        @Html.ActionLink(rec.date.Date.ToString("d"), "GetRecordByPatientIdAndDate", new { date = rec.date })
         <br />
     }
 </div>

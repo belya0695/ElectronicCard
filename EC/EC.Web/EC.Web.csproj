@@ -51,6 +51,9 @@
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="StructureMap, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\structuremap.3.1.1.134\lib\net40\StructureMap.dll</HintPath>
     </Reference>
@@ -118,10 +121,17 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\StructuremapMvc.cs" />
+    <Compile Include="AuthAttributes\AdminAttribute.cs" />
+    <Compile Include="AuthAttributes\DoctorAttribute.cs" />
+    <Compile Include="AuthAttributes\EditorAttribute.cs" />
+    <Compile Include="AuthAttributes\Models\UserPrincipal.cs" />
+    <Compile Include="AuthAttributes\PatientAttribute.cs" />
     <Compile Include="Controllers\AdvController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
     <Compile Include="Controllers\RecordsController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="DependencyResolution\ControllerConvention.cs" />
     <Compile Include="DependencyResolution\DefaultRegistry.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
@@ -145,10 +155,14 @@
     <Content Include="Views\Records\GetRecordsList.cshtml" />
     <Content Include="Views\Patient\GetPatientList.cshtml" />
     <Content Include="Views\Home\EditorStartPage.cshtml" />
-    <Content Include="Views\Records\SearchPage.cshtml" />
     <Content Include="Views\Adv\AdvBlock.cshtml" />
     <Content Include="Views\Records\GetRecord.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Views\Records\GetRecordByPatientIdAndDate.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Login\Denied.cshtml" />
+    <Content Include="Views\Search\SearchPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,7 +1,7 @@
 ﻿using System;
 using EC.Common.Models;
 
-namespace EC.DA.Interfaces
+namespace EC.DA.Repositories
 {
     public interface IRecordRepository
     {

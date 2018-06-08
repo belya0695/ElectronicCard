@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "SearchPage";
+    Layout = "~/Views/_MainHeader.cshtml";
+}
+
+<h2 class="center-elements">Search</h2>
+
+<div class="left-bar">
+    @using (Html.BeginForm())
+    {
+        <input type="radio" name="search" value="post-search" />
+        <input type="radio" name="search" value="diagnosis-search" />
+        <input type="text" name="search-param" />
+        <input type="radio" name="search" />
+        <input type="date" id="date-time-picker" name="date" />
+        <input type="submit" value="Search" />
+    }
+</div>

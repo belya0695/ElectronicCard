@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EC.Common.Loggers
+namespace EC.Common.Log
 {
     public interface ILogger
     {
