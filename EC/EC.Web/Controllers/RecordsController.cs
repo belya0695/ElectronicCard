@@ -18,15 +18,17 @@ namespace EC.Web.Controllers
         [Patient]
         public ActionResult GetRecordsList()
         {
-            return View(_recordProvider.GetRecordDatesByPatientId(8));//TODO id
+            return View(_recordProvider.GetRecordDatesByPatientId(((UserPrincipal)User).UserId));//TODO id
         }
 
+        [Patient]
         public ActionResult GetRecord(int id)
         {
             return View(_recordProvider.GetRecordById(id));
         }
 
-        public ActionResult GetRecordByPatientIdAndDate(int patientId, DateTime date)
+        [Patient]
+        public ActionResult GetRecordByPatientIdAndDate(DateTime date)
         {
             ViewBag.Date = date.ToString("d");
             return View(_recordProvider.GetRecordByPatientIdAndDate(((UserPrincipal)User).UserId, date)); //TODO id во вьюхе ставится 8

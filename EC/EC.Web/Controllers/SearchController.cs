@@ -1,10 +1,11 @@
-﻿using System.Web.Mvc;
+﻿using EC.Web.AuthAttributes;
+using System.Web.Mvc;
 
 namespace EC.Web.Controllers
 {
     public class SearchController : Controller
     {
-        // GET: Search
+        [Patient]
         public ActionResult SearchPage()
         {
             return View();

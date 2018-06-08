@@ -9,11 +9,26 @@
     <header>
         <div class="center-elements">
             <a href="~/Home/StartPage">Start Page</a>
-            <a href="~/Records/GetRecordsList">Medical Records</a>
-            <a href="">Personal Information</a>
-            <a href="~/Search/SearchPage">Search</a>
-            <a href="~/Patient/GetPatientList">Pacients list</a>
-            <a href="~/Home/EditorStartPage">Editor</a>
+            @if (HttpContext.Current.User.IsInRole("patient"))
+            {
+                <a href="~/Records/GetRecordsList">Medical Records</a>
+            }
+            @if (HttpContext.Current.User.IsInRole("admin") || HttpContext.Current.User.IsInRole("editor") || HttpContext.Current.User.IsInRole("patient") || HttpContext.Current.User.IsInRole("doctor"))
+            {
+                <a href="">Personal Information</a>
+            }
+            @if (HttpContext.Current.User.IsInRole("patient"))
+            {
+                <a href="~/Search/SearchPage">Search</a>
+            }
+            @if (HttpContext.Current.User.IsInRole("doctor"))
+            {
+                <a href="~/Patient/GetPatientList">Patients list</a>
+            }
+            @if (HttpContext.Current.User.IsInRole("editor"))
+            {
+                <a href="~/Home/EditorStartPage">Editor</a>
+            }
             @if (HttpContext.Current.User.IsInRole("admin"))
             {
                 <a href="~/Home/EditorStartPage">Administrator</a>
@@ -23,7 +38,6 @@
     </header>
     <div class="center-elements">
         @RenderBody()
-    </div>
     </div>
 </body>
 </html>
