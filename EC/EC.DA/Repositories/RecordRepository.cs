@@ -8,9 +8,11 @@ namespace EC.DA.Repositories
 {
     public class RecordRepository : IRecordRepository
     {
-        private readonly string RecordById = "GetRecordById";
-        private readonly string RecordByPatientIdAndDate = "GetRecordByPatientIdAndDate";
-        private readonly string RecordDatesByPatientId = "GetRecordDatesByPatientId";
+        private readonly string _recordById = "GetRecordById";
+        private readonly string _recordByPatientIdAndDate = "GetRecordByPatientIdAndDate";
+        private readonly string _recordDatesByPatientId = "GetRecordDatesByPatientId";
+        private readonly string _recordByPatientIdAndDiagnosis = "GetRecordByPatientIdAndDiagnosis";
+        private readonly string _recordByPatientIdAndDoctorsPost = "GetRecordByPatientIdAndDoctorsPost";
 
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["EcDbConnection"].ConnectionString;
 
@@ -21,7 +23,7 @@ namespace EC.DA.Repositories
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand(RecordById, connection)
+                SqlCommand command = new SqlCommand(_recordById, connection)
                 {
                     CommandType = System.Data.CommandType.StoredProcedure
                 };
@@ -70,7 +72,7 @@ namespace EC.DA.Repositories
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand(RecordByPatientIdAndDate, connection)
+                SqlCommand command = new SqlCommand(_recordByPatientIdAndDate, connection)
                 {
                     CommandType = System.Data.CommandType.StoredProcedure
                 };
@@ -119,6 +121,118 @@ namespace EC.DA.Repositories
             return recordsList.ToArray();
         }
 
+        public Record[] GetRecordByPatientIdAndDiagnosis(int patientId, string diagnosis)
+        {
+            List<Record> recordsList = new List<Record>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(_recordByPatientIdAndDiagnosis, connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                SqlParameter patientIdParam = new SqlParameter
+                {
+                    ParameterName = "@patient_id",
+                    Value = patientId
+                };
+                command.Parameters.Add(patientIdParam);
+
+                SqlParameter diagnosisParam = new SqlParameter
+                {
+                    ParameterName = "@diagnosis",
+                    Value = diagnosis
+                };
+                command.Parameters.Add(diagnosisParam);
+
+                var reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        var record = new Record
+                        {
+                            date = DateTime.Parse(reader["record_date"].ToString()),
+                            diagnosisName = reader["diagnosis_name"].ToString(),
+                            doctorsFirstName = reader["doctors_first_name"].ToString(),
+                            doctorsLastName = reader["doctors_last_name"].ToString(),
+                            doctorsPost = reader["post_name"].ToString(),
+                            IsSickLeaveIssued = bool.Parse(reader["issued"].ToString()),
+                            patientFirstName = reader["first_name"].ToString(),
+                            patientLastName = reader["last_name"].ToString(),
+                            patientMiddleName = reader["middle_name"].ToString(),
+                            recordId = int.Parse(reader["record_id"].ToString()),
+                            sickLeaveId = int.Parse(reader["sick_leave_id"].ToString()),
+                            validFrom = DateTime.Parse(reader["valid_from"].ToString()),
+                            validTo = DateTime.Parse(reader["valid_to"].ToString())
+                        };
+                        recordsList.Add(record);
+                    }
+                }
+                reader.Close();
+            }
+            return recordsList.ToArray();
+        }
+
+        public Record[] GetRecordByPatientIdAndDoctorsPost(int patientId, string post)
+        {
+            List<Record> recordsList = new List<Record>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(_recordByPatientIdAndDoctorsPost, connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                SqlParameter patientIdParam = new SqlParameter
+                {
+                    ParameterName = "@patient_id",
+                    Value = patientId
+                };
+                command.Parameters.Add(patientIdParam);
+
+                SqlParameter postParam = new SqlParameter
+                {
+                    ParameterName = "@post_name",
+                    Value = post
+                };
+                command.Parameters.Add(postParam);
+
+                var reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        var record = new Record
+                        {
+                            date = DateTime.Parse(reader["record_date"].ToString()),
+                            diagnosisName = reader["diagnosis_name"].ToString(),
+                            doctorsFirstName = reader["doctors_first_name"].ToString(),
+                            doctorsLastName = reader["doctors_last_name"].ToString(),
+                            doctorsPost = reader["post_name"].ToString(),
+                            IsSickLeaveIssued = bool.Parse(reader["issued"].ToString()),
+                            patientFirstName = reader["first_name"].ToString(),
+                            patientLastName = reader["last_name"].ToString(),
+                            patientMiddleName = reader["middle_name"].ToString(),
+                            recordId = int.Parse(reader["record_id"].ToString()),
+                            sickLeaveId = int.Parse(reader["sick_leave_id"].ToString()),
+                            validFrom = DateTime.Parse(reader["valid_from"].ToString()),
+                            validTo = DateTime.Parse(reader["valid_to"].ToString())
+                        };
+                        recordsList.Add(record);
+                    }
+                }
+                reader.Close();
+            }
+            return recordsList.ToArray();
+        }
+
         public Record[] GetRecordDatesByPatientId(int patientId)
         {
             List<Record> recordsList = new List<Record>();
@@ -126,7 +240,7 @@ namespace EC.DA.Repositories
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand(RecordDatesByPatientId, connection)
+                SqlCommand command = new SqlCommand(_recordDatesByPatientId, connection)
                 {
                     CommandType = System.Data.CommandType.StoredProcedure
                 };
