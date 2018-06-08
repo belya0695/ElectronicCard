@@ -23,6 +23,16 @@ namespace EC.Business.Providers
             return _recordRepository.GetRecordByPatientIdAndDate(patientId, recordDate);
         }
 
+        public Record[] GetRecordByPatientIdAndDiagnosis(int patientId, string diagnosis)
+        {
+            return _recordRepository.GetRecordByPatientIdAndDiagnosis(patientId, diagnosis);
+        }
+
+        public Record[] GetRecordByPatientIdAndDoctorsPost(int patientId, string post)
+        {
+            return _recordRepository.GetRecordByPatientIdAndDoctorsPost(patientId, post);
+        }
+
         public Record[] GetRecordDatesByPatientId(int patientId)
         {
             return _recordRepository.GetRecordDatesByPatientId(patientId);

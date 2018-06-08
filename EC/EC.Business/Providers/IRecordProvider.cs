@@ -8,5 +8,7 @@ namespace EC.Business.Providers
         Record GetRecordById(int recordId);
         Record[] GetRecordByPatientIdAndDate(int patientId, DateTime recordDate);
         Record[] GetRecordDatesByPatientId(int patientId);
+        Record[] GetRecordByPatientIdAndDiagnosis(int patientId, string diagnosis);
+        Record[] GetRecordByPatientIdAndDoctorsPost(int patientId, string post);
     }
 }
