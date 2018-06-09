@@ -1,7 +1,7 @@
 USE [EC.DB]
 GO
 
-/****** Object:  Table [dbo].[users]    Script Date: 27.05.2018 18:28:18 ******/
+/****** Object:  Table [dbo].[users]    Script Date: 09.06.2018 21:05:19 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -15,7 +15,6 @@ CREATE TABLE [dbo].[users](
 	[last_name] [nvarchar](40) NOT NULL,
 	[post_id] [int] NULL,
 	[birthdate] [date] NOT NULL,
-	[photo] [nvarchar](300) NULL,
 	[workplace] [nvarchar](100) NULL,
 	[email] [nvarchar](100) NOT NULL,
  CONSTRAINT [PK_doctors] PRIMARY KEY CLUSTERED 
