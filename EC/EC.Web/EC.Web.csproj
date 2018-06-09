@@ -112,6 +112,8 @@
     <Content Include="Content\Exceptions\exception-page-style.css" />
     <Content Include="Content\Exceptions\500.html" />
     <Content Include="Content\Images\noAdv.jpg" />
+    <Content Include="Content\Scripts\jquery-3.2.1.min.js" />
+    <Content Include="Content\Scripts\search-page-radio.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">

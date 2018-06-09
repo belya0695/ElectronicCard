@@ -3,6 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width" charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+    <script src="~/Content/Scripts/jquery-3.2.1.min.js"></script>
     <title>@ViewBag.Title</title>
 </head>
 <body>
@@ -13,7 +14,7 @@
             {
                 <a href="~/Records/GetRecordsList">Medical Records</a>
             }
-            @if (HttpContext.Current.User.IsInRole("admin") || HttpContext.Current.User.IsInRole("editor") || HttpContext.Current.User.IsInRole("patient") || HttpContext.Current.User.IsInRole("doctor"))
+            @if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 <a href="">Personal Information</a>
             }
@@ -33,15 +34,19 @@
             {
                 <a href="~/Home/EditorStartPage">Administrator</a>
             }
-            <a href="~/Login/Login">Login</a>
-            @if (HttpContext.Current.User.IsInRole("admin") || HttpContext.Current.User.IsInRole("editor") || HttpContext.Current.User.IsInRole("patient") || HttpContext.Current.User.IsInRole("doctor"))
+            @if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 <a href="~/Home/EditorStartPage">Logout</a>
+            }
+            else
+            {
+                <a href="~/Login/Login">Login</a>
             }
         </div>
     </header>
     <div class="center-elements">
         @RenderBody()
     </div>
+    @RenderSection("scripts", required: false)
 </body>
 </html>
