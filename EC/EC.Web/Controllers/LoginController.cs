@@ -56,6 +56,7 @@ namespace EC.Web.Controllers
 
         public ActionResult Logout()
         {
+            _authService.Logout();
             return RedirectToAction("Login","Login");
         }
 

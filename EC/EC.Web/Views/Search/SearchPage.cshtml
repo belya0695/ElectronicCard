@@ -4,16 +4,46 @@
     Layout = "~/Views/_MainHeader.cshtml";
 }
 
+@section scripts
+{
+    <script src="~/Content/Scripts/search-page-radio.js"></script>
+    <script src="~/Content/Scripts/search-page-ajax.js"></script>
+    <script type="text/javascript">
+        window.jsonVar = window.JsonClass('@Html.Raw(Url.Action("SearchByDate", "Search"))', '@Html.Raw(Url.Action("SearchByDiagnosis", "Search"))',
+            '@Html.Raw(Url.Action("SearchByPost", "Search"))')
+    </script>
+
+}
+
 <h2 class="center-elements">Search</h2>
 
 <div class="left-bar">
-    @using (Html.BeginForm())
-    {
-        <input type="radio" name="search" value="post-search" />
-        <input type="radio" name="search" value="diagnosis-search" />
-        <input type="text" name="search-param" />
-        <input type="radio" name="search" />
-        <input type="date" id="date-time-picker" name="date" />
-        <input type="submit" value="Search" />
-    }
+    <div id="radio-list">
+        <span>Search by:</span><br />
+        <input type="radio" id="radio-date" name="search" value="search-by-date" checked/>
+        <label for="radio-date">date</label><br />
+        <input type="radio" id="radio-diagnosis" name="search" value="search-by-diagnosis" />
+        <label for="radio-diagnosis">diagnosis</label><br />
+        <input type="radio" id="radio-post" name="search" value="search-by-post" />
+        <label for="radio-post">post</label><br />
+    </div>
+
+    <div id="date-search">
+        <input type="date" id="date" name="date" />
+        <input type="button" value="Search" onclick="window.jsonVar.SearchByDate()" />
+    </div>
+
+    <div id="diagnosis-search" hidden="hidden">
+        <input type="search" id="diagnosis" name="diagnosis" />
+        <input type="button" value="Search" onclick="window.jsonVar.SearchByDiagnosis()" />
+    </div>
+
+    <div id="post-search" hidden="hidden">
+        <input type="search" id="post" name="post" />
+        <input type="button" value="Search" onclick="window.jsonVar.SearchByPost()" />
+    </div>
+</div>
+
+<div class="center-elements">
+    <div id="search-results"></div>
 </div>
