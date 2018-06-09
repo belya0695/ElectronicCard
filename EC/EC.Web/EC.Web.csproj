@@ -113,6 +113,7 @@
     <Content Include="Content\Exceptions\500.html" />
     <Content Include="Content\Images\noAdv.jpg" />
     <Content Include="Content\Scripts\jquery-3.2.1.min.js" />
+    <Content Include="Content\Scripts\search-page-ajax.js" />
     <Content Include="Content\Scripts\search-page-radio.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
@@ -165,6 +166,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Login\Denied.cshtml" />
     <Content Include="Views\Search\SearchPage.cshtml" />
+    <Content Include="Views\Shared\RecordsList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

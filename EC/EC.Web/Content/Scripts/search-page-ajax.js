@@ -28,7 +28,7 @@
 
     function SearchByDate() {
         var callback = function (result) {
-            var label = $("#search-result");
+            var label = $("#search-results");
             label.html(result);
         };
         var date = $("#date").val();
@@ -38,7 +38,7 @@
 
     function SearchByDiagnosis() {
         var callback = function (result) {
-            var label = $("#search-result");
+            var label = $("#search-results");
             label.html(result);
         };
         var diagnosis = $("#diagnosis").val();
