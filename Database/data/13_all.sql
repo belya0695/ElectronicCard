@@ -18,7 +18,7 @@ VALUES ('Jarrod','Moon','Adam',5,'19/01/1954','tempus.risus.Donec@litoratorquent
 ('Admin','Admin','Admin',5,'19/01/1954','Admin@admin.ca'),
 ('Editor','Editor','Editor',3,'13/04/1967','Editor@editor.ed')
 INSERT INTO [dbo].[users]([first_name],[middle_name],[last_name],[post_id],[birthdate],[email],[workplace])
-VALUES ('Zelenia','Morris','Addison',3,'02/03/1982','lectus.quis@cursus.co.uk','Nulla Limited'),('Allistair','Moore','Vincent',4,'18/06/1976','et.netus@ipsumCurabitur.ca','Ut Nec Inc.'),('Paki','Cox','Daniel',3,'13/08/1953','non.sapien@Sedmalesuada.net','Nostra Per Associates'),('Amaya','Page','Felix',2,'14/01/1969','magnis.dis.parturient@vitae.ca','Pharetra Inc.'),('Raven','Shaw','Zeus',7,'03/04/1980','Vivamus.rhoncus@eu.edu','Nisi Institute')
+VALUES ('Zelenia','Morris','Addison',NULL,'02/03/1982','lectus.quis@cursus.co.uk','Nulla Limited'),('Allistair','Moore','Vincent',NULL,'18/06/1976','et.netus@ipsumCurabitur.ca','Ut Nec Inc.'),('Paki','Cox','Daniel',NULL,'13/08/1953','non.sapien@Sedmalesuada.net','Nostra Per Associates'),('Amaya','Page','Felix',NULL,'14/01/1969','magnis.dis.parturient@vitae.ca','Pharetra Inc.'),('Raven','Shaw','Zeus',NULL,'03/04/1980','Vivamus.rhoncus@eu.edu','Nisi Institute')
 
 INSERT INTO [dbo].[logins]([login],[pass],[user_id],[role_id])
 VALUES ('doc1', '1111', 1, 3),('doc2', '1111', 2, 3),('doc3', '1111', 3, 3),('doc4', '1111', 4, 3),('doc5', '1111', 5, 3),
