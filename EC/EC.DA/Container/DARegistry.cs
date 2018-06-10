@@ -14,6 +14,7 @@ namespace EC.DA.Container
             For<IUserRepository>().Use<UserRepository>();
             For<IDiagnosisRepository>().Use<DiagnosisRepository>();
             For<IDrugRepository>().Use<DrugRepository>();
+            For<IProcedureRepository>().Use<ProcedureRepository>();
         }
     }
 }

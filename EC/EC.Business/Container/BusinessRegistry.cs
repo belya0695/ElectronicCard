@@ -14,6 +14,7 @@ namespace EC.Business.Container
             For<IAuthService>().Use<AuthService>();
             For<IDiagnosisProvider>().Use<DiagnosisProvider>();
             For<IDrugProvider>().Use<DrugProvider>();
+            For<IProcedureProvider>().Use<ProcedureProvider>();
         }
     }
 }
