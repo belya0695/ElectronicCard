@@ -10,5 +10,7 @@ namespace EC.Business.Providers
         Record[] GetRecordDatesByPatientId(int patientId);
         Record[] GetRecordByPatientIdAndDiagnosis(int patientId, string diagnosis);
         Record[] GetRecordByPatientIdAndDoctorsPost(int patientId, string post);
+        void AddRecordAndSickLeave(int patientId, int diagnosisId, int doctorId);
+        void DeleteRecordAndSickLeave(int recordId);
     }
 }
