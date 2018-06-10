@@ -1,5 +1,4 @@
-﻿using System;
-using EC.Common.Models;
+﻿using EC.Common.Models;
 using EC.DA.Repositories;
 
 namespace EC.Business.Providers
@@ -31,6 +30,27 @@ namespace EC.Business.Providers
         public void UpdateDrug(int drugId, string drugName)
         {
             _drugRepository.UpdateDrug(drugId, drugName);
+        }
+
+
+        public void AddDrugToDrugList(int recordId, int drugId, string admMode, int duration)
+        {
+            _drugRepository.AddDrugToDrugList(recordId, drugId, admMode, duration);
+        }
+
+        public void DeleteDrugFromDrugList(int recordId, int drugId)
+        {
+            _drugRepository.DeleteDrugFromDrugList(recordId, drugId);
+        }
+
+        public Drug[] GetDrugList(int recordId)
+        {
+            return _drugRepository.GetDrugList(recordId);
+        }
+
+        public void UpdateDrugList(int recordId, int drugId, string admMode, int duration)
+        {
+            _drugRepository.UpdateDrugList(recordId, drugId, admMode, duration);
         }
     }
 }
