@@ -8,11 +8,12 @@ namespace EC.Business.Container
     {
         public BusinessRegistry()
         {
-            For<IStacktraseTest>().Use<StacktraseTest>();
             For<IRecordProvider>().Use<RecordProvider>();
             For<IAdvProvider>().Use<AdvProvider>();
             For<IUserProvider>().Use<UserProvider>();
             For<IAuthService>().Use<AuthService>();
+            For<IDiagnosisProvider>().Use<DiagnosisProvider>();
+            For<IDrugProvider>().Use<DrugProvider>();
         }
     }
 }

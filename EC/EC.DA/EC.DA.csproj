@@ -68,7 +68,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\DiagnosisRepository.cs" />
+    <Compile Include="Repositories\DrugRepository.cs" />
     <Compile Include="Repositories\IAdvertisingRepository.cs" />
+    <Compile Include="Repositories\IDiagnosisRepository.cs" />
+    <Compile Include="Repositories\IDrugRepository.cs" />
     <Compile Include="Repositories\IRecordRepository.cs" />
     <Compile Include="Repositories\AdvertisingRepository.cs" />
     <Compile Include="Container\DARegistry.cs" />

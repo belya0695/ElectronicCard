@@ -13,6 +13,7 @@ namespace EC.DA.Container
             For<IAdvertisingRepository>().Use<AdvertisingRepository>();
             For<IUserRepository>().Use<UserRepository>();
             For<IDiagnosisRepository>().Use<DiagnosisRepository>();
+            For<IDrugRepository>().Use<DrugRepository>();
         }
     }
 }

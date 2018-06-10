@@ -5,7 +5,7 @@ using EC.Common.Models;
 
 namespace EC.DA.Repositories
 {
-    class DiagnosisRepository : IDiagnosisRepository
+    public class DiagnosisRepository : IDiagnosisRepository
     {
         private readonly string _allDiag = "GetAllDiagnoses";
         private readonly string _addDiag = "AddDiagnosis";
