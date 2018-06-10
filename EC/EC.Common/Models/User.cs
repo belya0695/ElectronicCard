@@ -9,8 +9,7 @@ namespace EC.Common.Models
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }
-        public int PostId { get; set; }
-        public string PostName { get; set; }
+        public Post Post { get; set; }
         public DateTime BirthDate { get; set; }
         public Image Photo { get; set; }
         public string Workplace { get; set; }
