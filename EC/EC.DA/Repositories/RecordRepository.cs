@@ -46,7 +46,7 @@ namespace EC.DA.Repositories
                     ParameterName = "@doctor_id",
                     Value = doctorId
                 };
-                command.Parameters.Add(doctorId);
+                command.Parameters.Add(doctorIdParam);
                 command.ExecuteNonQuery();
             }
         }

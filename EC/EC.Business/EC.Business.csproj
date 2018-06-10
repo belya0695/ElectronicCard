@@ -65,17 +65,22 @@
     <Compile Include="Container\BusinessRegistry.cs" />
     <Compile Include="Enums\LoginResult.cs" />
     <Compile Include="Providers\DiagnosisProvider.cs" />
+    <Compile Include="Providers\DrugProvider.cs" />
     <Compile Include="Providers\IAdvProvider.cs" />
     <Compile Include="Providers\IDiagnosisProvider.cs" />
+    <Compile Include="Providers\IDrugProvider.cs" />
+    <Compile Include="Providers\IPostProvider.cs" />
+    <Compile Include="Providers\IProcedureProvider.cs" />
     <Compile Include="Providers\IRecordProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\AdvProvider.cs" />
     <Compile Include="Providers\IUserProvider.cs" />
+    <Compile Include="Providers\PostProvider.cs" />
+    <Compile Include="Providers\ProcedureProvider.cs" />
     <Compile Include="Providers\RecordProvider.cs" />
     <Compile Include="Providers\UserProvider.cs" />
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="Services\IAuthService.cs" />
-    <Compile Include="StacktraseTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

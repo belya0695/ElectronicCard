@@ -16,6 +16,7 @@ namespace EC.Business.Container
             For<IDrugProvider>().Use<DrugProvider>();
             For<IProcedureProvider>().Use<ProcedureProvider>();
             For<IPostProvider>().Use<PostProvider>();
+            For<IPhoneProvider>().Use<PhoneProvider>();
         }
     }
 }

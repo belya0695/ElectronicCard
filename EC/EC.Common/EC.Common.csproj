@@ -67,6 +67,8 @@
     <Compile Include="Models\Diagnosis.cs" />
     <Compile Include="Models\Drug.cs" />
     <Compile Include="Models\Image.cs" />
+    <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\Procedure.cs" />
     <Compile Include="Models\Record.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\User.cs" />
