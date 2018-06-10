@@ -12,6 +12,7 @@ namespace EC.DA.Container
             For<IAdvClient>().Use<AdvClient>();
             For<IAdvertisingRepository>().Use<AdvertisingRepository>();
             For<IUserRepository>().Use<UserRepository>();
+            For<IDiagnosisRepository>().Use<DiagnosisRepository>();
         }
     }
 }
