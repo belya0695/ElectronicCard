@@ -1,7 +1,7 @@
 USE [EC.DB]
 GO
 
-/****** Object:  StoredProcedure [dbo].[GetAllUsers]    Script Date: 10.06.2018 22:39:12 ******/
+/****** Object:  StoredProcedure [dbo].[GetAllUsers]    Script Date: 11.06.2018 21:50:24 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -11,7 +11,7 @@ GO
 CREATE PROCEDURE [dbo].[GetAllUsers]
 AS
 BEGIN
-SELECT *, posts.post_name
-FROM dbo.users INNER JOIN posts ON dbo.users.post_id = posts.post_id
+SELECT *, posts.post_name, logins.login
+FROM dbo.users INNER JOIN posts ON dbo.users.post_id = posts.post_id INNER JOIN logins ON users.user_id = logins.user_id
 END
 GO
