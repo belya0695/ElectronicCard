@@ -65,7 +65,7 @@ namespace EC.DA.Repositories
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand(_getProcedure, connection)
+                SqlCommand command = new SqlCommand(_allProcedures, connection)
                 {
                     CommandType = System.Data.CommandType.StoredProcedure
                 };
@@ -119,7 +119,7 @@ namespace EC.DA.Repositories
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand(_delProcedure, connection)
+                SqlCommand command = new SqlCommand(_getProcedure, connection)
                 {
                     CommandType = System.Data.CommandType.StoredProcedure
                 };

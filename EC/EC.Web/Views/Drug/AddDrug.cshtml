@@ -3,12 +3,13 @@
     ViewBag.Title = "AddDrug";
     Layout = "~/Views/_EditorHeader.cshtml";
 }
-
-<h2 class="center-elements">AddDrug</h2>
-@using (Html.BeginForm("AddDrug", "Drug"))
-{
-    <label for="drugName">Enter drug name:</label>
-    <input type="text" name="drugId" value="" hidden />
-    <input type="text" name="drugName" value="" />
-    <input type="submit" value="Add" />
-}
+<div class="content">
+    <h2 class="center-elements">AddDrug</h2>
+    @using (Html.BeginForm("AddDrug", "Drug"))
+    {
+        <label for="drugName">Enter drug name:</label>
+        <input type="text" name="drugId" value="" hidden />
+        <input type="text" name="drugName" value="" />
+        <input type="submit" value="Add" />
+    }
+</div>

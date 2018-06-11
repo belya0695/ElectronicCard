@@ -109,8 +109,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Exceptions\exception-page-style.css" />
-    <Content Include="Content\Exceptions\500.html" />
     <Content Include="Content\Images\noAdv.jpg" />
     <Content Include="Content\Scripts\jquery-3.2.1.min.js" />
     <Content Include="Content\Scripts\search-page-ajax.js" />
@@ -134,6 +132,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
+    <Compile Include="Controllers\ProcedureController.cs" />
     <Compile Include="Controllers\RecordsController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="DependencyResolution\ControllerConvention.cs" />
@@ -171,6 +170,10 @@
     <Content Include="Views\Drug\DrugsList.cshtml" />
     <Content Include="Views\Drug\GetDrug.cshtml" />
     <Content Include="Views\Drug\AddDrug.cshtml" />
+    <Content Include="Views\Procedure\ProceduresList.cshtml" />
+    <Content Include="Views\Procedure\AddProcedure.cshtml" />
+    <Content Include="Views\Procedure\GetProcedure.cshtml" />
+    <Content Include="Views\Shared\ServerError.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

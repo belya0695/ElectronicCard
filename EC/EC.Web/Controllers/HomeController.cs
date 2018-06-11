@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
 using EC.Common.Log;
-using EC.Business;
 
 namespace EC.Web.Controllers
 {
@@ -23,7 +22,7 @@ namespace EC.Web.Controllers
             catch (ArgumentException ex)
             {
                 _logger.LogInfo(ex.Message);
-                return Redirect("/Content/Exceptions/500.html");
+                return View("ServerError");
             }
         }
 
