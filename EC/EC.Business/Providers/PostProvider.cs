@@ -27,6 +27,11 @@ namespace EC.Business.Providers
             _postRepository.DeletePost(postId);
         }
 
+        public Post GetPost(int postId)
+        {
+            return _postRepository.GetPost(postId);
+        }
+
         public Post[] GetPosts()
         {
             return _postRepository.GetPosts();

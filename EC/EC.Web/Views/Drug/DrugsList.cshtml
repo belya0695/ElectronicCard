@@ -1,0 +1,20 @@
+﻿@model IEnumerable<EC.Common.Models.Drug>
+@{
+    ViewBag.Title = "DrugsList";
+    Layout = "~/Views/_EditorHeader.cshtml";
+}
+
+<div class="content">
+    <h2 class="center-elements">Drugs</h2>
+    <a href="~/Drug/AddDrug">Add new drug</a>
+    @foreach (var drug in Model)
+    {
+        <div class="bordered-content">
+            <p>@drug.DrugName</p>
+
+            @Html.ActionLink("Edit", "GetDrug", new { drugId = drug.DrugId })<br />
+            @Html.ActionLink("Delete", "DeleteDrug", new { drugId = drug.DrugId })
+            <br />
+        </div>
+    }
+</div>

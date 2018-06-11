@@ -11,6 +11,7 @@ namespace EC.DA.Repositories
         private readonly string _addPost = "AddPost";
         private readonly string _delPost = "DeletePost";
         private readonly string _updPost = "UpdatePost";
+        private readonly string _getPost = "GetPostById";
 
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["EcDbConnection"].ConnectionString;
 
@@ -50,6 +51,39 @@ namespace EC.DA.Repositories
                 command.Parameters.Add(postIdParam);
                 command.ExecuteNonQuery();
             }
+        }
+
+        public Post GetPost(int postId)
+        {
+            Post post = null;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(_getPost, connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+                SqlParameter postIdParam = new SqlParameter
+                {
+                    ParameterName = "@post_id",
+                    Value = postId
+                };
+                command.Parameters.Add(postIdParam);
+                var reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        post = new Post
+                        {
+                            PostId = int.Parse(reader["post_id"].ToString()),
+                            PostName = reader["post_name"].ToString()
+                        };
+                    }
+                }
+                reader.Close();
+            }
+            return post;
         }
 
         public Post[] GetPosts()

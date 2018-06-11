@@ -8,19 +8,16 @@ namespace EC.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger _logger;
-        private readonly IStacktraseTest _stacktraseTest;
 
-        public HomeController(ILogger logger, IStacktraseTest stacktraseTest)
+        public HomeController(ILogger logger)
         {
             _logger = logger;
-            _stacktraseTest = stacktraseTest;
         }
 
         public ActionResult StartPage()
         {
             try
             {
-                //_stacktraseTest.TestMethod();
                 return View();
             }
             catch (ArgumentException ex)

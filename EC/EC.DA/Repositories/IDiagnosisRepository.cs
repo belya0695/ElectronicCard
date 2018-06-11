@@ -8,5 +8,6 @@ namespace EC.DA.Repositories
         void AddDiagnosis(string diagnosisName);
         void DeleteDiagnosis(int diagnosisId);
         void UpdateDiagnosis(int diagnosisId, string diagnosisName);
+        Diagnosis GetDiagnosis(int diagnosisId);
     }
 }

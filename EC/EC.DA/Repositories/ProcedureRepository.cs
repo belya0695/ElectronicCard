@@ -12,6 +12,7 @@ namespace EC.DA.Repositories
         private readonly string _addProcedure = "AddMedProcedure";
         private readonly string _delProcedure = "DeleteMedProcedure";
         private readonly string _updProcedure = "UpdateMedProcedure";
+        private readonly string _getProcedure = "GetProcedureById";
 
         private readonly string _getProcedureList = "GetProceduresListsByRecordId";
         private readonly string _addProcedureToList = "AddProcedureToProcedureList";
@@ -64,7 +65,7 @@ namespace EC.DA.Repositories
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand(_allProcedures, connection)
+                SqlCommand command = new SqlCommand(_getProcedure, connection)
                 {
                     CommandType = System.Data.CommandType.StoredProcedure
                 };
@@ -112,6 +113,38 @@ namespace EC.DA.Repositories
             }
         }
 
+        public Procedure GetProcedure(int procedureId)
+        {
+            Procedure procedure = null;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(_delProcedure, connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+                SqlParameter procedureIdParam = new SqlParameter
+                {
+                    ParameterName = "@proc_id",
+                    Value = procedureId
+                };
+                command.Parameters.Add(procedureIdParam);
+                var reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        procedure = new Procedure
+                        {
+                            ProcedureId = int.Parse(reader["procedure_id"].ToString()),
+                            ProcedureName = reader["procedure_name"].ToString()
+                        };
+                    }
+                }
+                reader.Close();
+            }
+            return procedure;
+        }
 
         public void AddProcedureToProcedureList(int recordId, int procedureId, string admMode, int duration)
         {

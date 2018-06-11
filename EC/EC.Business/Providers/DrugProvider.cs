@@ -52,5 +52,10 @@ namespace EC.Business.Providers
         {
             _drugRepository.UpdateDrugList(recordId, drugId, admMode, duration);
         }
+
+        public Drug GetDrug(int drugId)
+        {
+            return _drugRepository.GetDrug(drugId);
+        }
     }
 }

@@ -8,5 +8,6 @@ namespace EC.DA.Repositories
         void DeletePost(int postId);
         Post[] GetPosts();
         void UpdatePost(int postId, string postName);
+        Post GetPost(int postId);
     }
 }

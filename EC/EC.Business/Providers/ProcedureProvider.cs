@@ -52,5 +52,10 @@ namespace EC.Business.Providers
         {
             _procedureRepository.UpdateProcedureList(recordId, procedureId, admMode, duration);
         }
+
+        public Procedure GetProcedure(int procedureId)
+        {
+            return _procedureRepository.GetProcedure(procedureId);
+        }
     }
 }

@@ -11,6 +11,7 @@ namespace EC.DA.Repositories
         private readonly string _addDrug = "AddDrug";
         private readonly string _delDrug = "DeleteDrug";
         private readonly string _updDrug = "UpdateDrug";
+        private readonly string _getDrug = "GetDrugById";
 
         private readonly string _getDrugList = "GetDrugsListsByRecordId";
         private readonly string _addDrugToList = "AddDrugToDrugList";
@@ -109,6 +110,39 @@ namespace EC.DA.Repositories
                 command.Parameters.Add(drugNameParam);
                 command.ExecuteNonQuery();
             }
+        }
+
+        public Drug GetDrug(int drugId)
+        {
+            Drug drug = null;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(_getDrug, connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+                SqlParameter drugIdParam = new SqlParameter
+                {
+                    ParameterName = "@drug_id",
+                    Value = drugId
+                };
+                command.Parameters.Add(drugIdParam);
+                var reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        drug = new Drug
+                        {
+                            DrugId = int.Parse(reader["drug_id"].ToString()),
+                            DrugName = reader["drug_name"].ToString()
+                        };
+                    }
+                }
+                reader.Close();
+            }
+            return drug;
         }
 
 

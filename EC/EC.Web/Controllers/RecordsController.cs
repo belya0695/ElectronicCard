@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 using EC.Business.Providers;
+using EC.Common.Log;
 using EC.Web.AuthAttributes;
 using EC.Web.AuthAttributes.Models;
 
@@ -9,10 +10,12 @@ namespace EC.Web.Controllers
     public class RecordsController : Controller
     {
         private readonly IRecordProvider _recordProvider;
+        private readonly ILogger _logger;
 
-        public RecordsController(IRecordProvider recordProvider)
+        public RecordsController(IRecordProvider recordProvider, ILogger logger)
         {
             _recordProvider = recordProvider;
+            _logger = logger;
         }
 
         [Patient]

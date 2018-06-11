@@ -11,6 +11,8 @@ namespace EC.DA.Repositories
         private readonly string _addDiag = "AddDiagnosis";
         private readonly string _delDiag = "DeleteDiagnosis";
         private readonly string _updDiag = "UpdateDiagnosis";
+        private readonly string _getDiag = "GetDiagnosisById";
+
 
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["EcDbConnection"].ConnectionString;
 
@@ -79,6 +81,40 @@ namespace EC.DA.Repositories
                 reader.Close();
             }
             return diagnoses.ToArray();
+        }
+
+        public Diagnosis GetDiagnosis(int diagnosisId)
+        {
+            Diagnosis diagnosis = null;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(_getDiag, connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+                SqlParameter diagnosisIdParam = new SqlParameter
+                {
+                    ParameterName = "@diag_id",
+                    Value = diagnosisId
+                };
+                command.Parameters.Add(diagnosisIdParam);
+                var reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        diagnosis = new Diagnosis
+                        {
+                            DiagnosisId = int.Parse(reader["diagnosis_id"].ToString()),
+                            DiagnosisName = reader["diagnosis_name"].ToString()
+                        };
+                    }
+                }
+                reader.Close();
+            }
+            return diagnosis;
         }
 
         public void UpdateDiagnosis(int diagnosisId, string diagnosisName)

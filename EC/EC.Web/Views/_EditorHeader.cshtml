@@ -4,9 +4,14 @@
 }
 
 <div class="left-bar">
-    <a href="" class="left-bar-ref"></a>ываы<br>
-    <a href="" class="left-bar-ref"></a>ываываыв<br>
-    <a href="" class="left-bar-ref"></a>ываыва<br>
-    <a href="" class="left-bar-ref"></a>ываыв<br>
+    <a href="~/Drug/DrugsList" class="left-bar-ref">Drugs</a><br /> <br />
+    <a href="" class="left-bar-ref">Procedures</a><br /> <br />
+    <a href="" class="left-bar-ref">Posts</a><br /> <br />
+    <a href="" class="left-bar-ref">Diagnoses</a><br /> <br />
+    @if (HttpContext.Current.User.IsInRole("admin"))
+    {
+        <a href="" class="left-bar-ref">Users</a>
+    }
 </div>
+
 @RenderBody()

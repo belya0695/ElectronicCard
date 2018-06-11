@@ -27,6 +27,11 @@ namespace EC.Business.Providers
             return _diagnosisRepository.GetDiagnoses();
         }
 
+        public Diagnosis GetDiagnosis(int diagnosisId)
+        {
+            return _diagnosisRepository.GetDiagnosis(diagnosisId);
+        }
+
         public void UpdateDiagnosis(int diagnosisId, string diagnosisName)
         {
             _diagnosisRepository.UpdateDiagnosis(diagnosisId, diagnosisName);
