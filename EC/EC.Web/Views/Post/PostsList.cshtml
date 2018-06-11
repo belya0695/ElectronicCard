@@ -1,0 +1,20 @@
+﻿@model IEnumerable<EC.Common.Models.Post>
+@{
+    ViewBag.Title = "PostsList";
+    Layout = "~/Views/_EditorHeader.cshtml";
+}
+
+<div class="content">
+    <h2 class="center-elements">Posts</h2>
+    <a href="~/Post/AddPost">Add new post</a>
+    @foreach (var post in Model)
+    {
+        <div class="bordered-content">
+            <p>@post.PostName</p>
+
+            @Html.ActionLink("Edit", "GetPost", new { postId = post.PostId })<br />
+            @Html.ActionLink("Delete", "DeletePost", new { postId = post.PostId })
+            <br />
+        </div>
+    }
+</div>

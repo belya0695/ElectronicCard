@@ -128,10 +128,12 @@
     <Compile Include="AuthAttributes\Models\UserPrincipal.cs" />
     <Compile Include="AuthAttributes\PatientAttribute.cs" />
     <Compile Include="Controllers\AdvController.cs" />
+    <Compile Include="Controllers\DiagnosisController.cs" />
     <Compile Include="Controllers\DrugController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\ProcedureController.cs" />
     <Compile Include="Controllers\RecordsController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -174,6 +176,12 @@
     <Content Include="Views\Procedure\AddProcedure.cshtml" />
     <Content Include="Views\Procedure\GetProcedure.cshtml" />
     <Content Include="Views\Shared\ServerError.cshtml" />
+    <Content Include="Views\Diagnosis\DiagnosesList.cshtml" />
+    <Content Include="Views\Diagnosis\AddDiagnosis.cshtml" />
+    <Content Include="Views\Diagnosis\GetDiagnosis.cshtml" />
+    <Content Include="Views\Post\AddPost.cshtml" />
+    <Content Include="Views\Post\PostsList.cshtml" />
+    <Content Include="Views\Post\GetPost.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

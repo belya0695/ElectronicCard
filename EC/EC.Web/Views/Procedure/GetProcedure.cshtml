@@ -7,7 +7,7 @@
     <h2 class="center-elements">Edit Procedure</h2>
     @using (Html.BeginForm("UpdateProcedure", "Procedure"))
     {
-        <label for="procName">Change drug name:</label>
+        <label for="procName">Change procedure name:</label>
         <input type="text" name="procedureId" value="@Model.ProcedureId" hidden />
         <input type="text" name="procName" value="@Model.ProcedureName" />
         <input type="submit" value="Update" />

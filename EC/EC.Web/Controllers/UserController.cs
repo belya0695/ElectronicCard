@@ -3,7 +3,7 @@ using System.Web.Mvc;
 
 namespace EC.Web.Controllers
 {
-    public class PatientController : Controller
+    public class UserController : Controller
     {
         [Doctor]
         public ActionResult GetPatientList()

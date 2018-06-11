@@ -5,9 +5,9 @@
 
 <div class="left-bar">
     <a href="~/Drug/DrugsList" class="left-bar-ref">Drugs</a><br /> <br />
-    <a href="" class="left-bar-ref">Procedures</a><br /> <br />
-    <a href="" class="left-bar-ref">Posts</a><br /> <br />
-    <a href="" class="left-bar-ref">Diagnoses</a><br /> <br />
+    <a href="~/Procedure/ProceduresList" class="left-bar-ref">Procedures</a><br /> <br />
+    <a href="~/Post/PostsList" class="left-bar-ref">Posts</a><br /> <br />
+    <a href="~/Diagnosis/DiagnosesList" class="left-bar-ref">Diagnoses</a><br /> <br />
     @if (HttpContext.Current.User.IsInRole("admin"))
     {
         <a href="" class="left-bar-ref">Users</a>

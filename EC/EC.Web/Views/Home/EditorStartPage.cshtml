@@ -6,16 +6,16 @@
 
 <div class="content">
     <h2 class="center-elements">Editor</h2>
-    @if (HttpContext.Current.User.IsInRole("editor"))
-    {
-        <div class="description-text">
-            You can edit any information except user data.
-        </div>
-    }
     @if (HttpContext.Current.User.IsInRole("admin"))
     {
         <div class="description-text">
             You can edit any information including user data.
+        </div>
+    }
+    else
+    {
+        <div class="description-text">
+            You can edit any information except user data.
         </div>
     }
 </div>

@@ -24,7 +24,7 @@
             }
             @if (HttpContext.Current.User.IsInRole("doctor"))
             {
-                <a href="~/Patient/GetPatientList">Patients list</a>
+                <a href="~/User/GetPatientList">Patients list</a>
             }
             @if (HttpContext.Current.User.IsInRole("editor"))
             {
