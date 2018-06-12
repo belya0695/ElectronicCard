@@ -1,10 +1,12 @@
 ﻿using EC.Business.Providers;
 using EC.Common.Log;
 using System;
+using System.ComponentModel;
 using System.Web.Mvc;
 
 namespace EC.Web.Controllers
 {
+    [Editor]
     public class PostController : Controller
     {
         private readonly ILogger _logger;
