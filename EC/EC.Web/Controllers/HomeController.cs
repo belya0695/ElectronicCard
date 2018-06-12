@@ -1,32 +1,28 @@
 ﻿using System;
 using System.Web.Mvc;
 using EC.Common.Log;
-using EC.Business;
 
 namespace EC.Web.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger _logger;
-        private readonly IStacktraseTest _stacktraseTest;
 
-        public HomeController(ILogger logger, IStacktraseTest stacktraseTest)
+        public HomeController(ILogger logger)
         {
             _logger = logger;
-            _stacktraseTest = stacktraseTest;
         }
 
         public ActionResult StartPage()
         {
             try
             {
-                //_stacktraseTest.TestMethod();
                 return View();
             }
             catch (ArgumentException ex)
             {
                 _logger.LogInfo(ex.Message);
-                return Redirect("/Content/Exceptions/500.html");
+                return View("ServerError");
             }
         }
 

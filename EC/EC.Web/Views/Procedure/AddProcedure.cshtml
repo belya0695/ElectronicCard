@@ -1,0 +1,15 @@
+﻿@model EC.Common.Models.Procedure
+@{
+    ViewBag.Title = "AddProcedure";
+    Layout = "~/Views/_EditorHeader.cshtml";
+}
+<div class="content">
+    <h2 class="center-elements">AddProcedure</h2>
+    @using (Html.BeginForm("AddProcedure", "Procedure"))
+    {
+        <label for="procName">Enter procedure name:</label>
+        <input type="text" name="procId" value="" hidden />
+        <input type="text" name="procName" value="" />
+        <input type="submit" value="Add" />
+    }
+</div>

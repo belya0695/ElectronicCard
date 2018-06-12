@@ -13,8 +13,65 @@ namespace EC.DA.Repositories
         private readonly string _recordDatesByPatientId = "GetRecordDatesByPatientId";
         private readonly string _recordByPatientIdAndDiagnosis = "GetRecordByPatientIdAndDiagnosis";
         private readonly string _recordByPatientIdAndDoctorsPost = "GetRecordByPatientIdAndDoctorsPost";
+        private readonly string _addRecord = "AddMedRecordAndSickLeave";
+        private readonly string _deleteRecord = "DeleteMedRecordAndSickLeave";
 
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["EcDbConnection"].ConnectionString;
+
+        public void AddRecordAndSickLeave(int patientId, int diagnosisId, int doctorId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(_addRecord, connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                SqlParameter patientIdParam = new SqlParameter
+                {
+                    ParameterName = "@patient_id",
+                    Value = patientId
+                };
+                command.Parameters.Add(patientIdParam);
+
+                SqlParameter diagnosisIdParam = new SqlParameter
+                {
+                    ParameterName = "@diagnosis_id",
+                    Value = diagnosisId
+                };
+                command.Parameters.Add(diagnosisIdParam);
+                SqlParameter doctorIdParam = new SqlParameter
+                {
+                    ParameterName = "@doctor_id",
+                    Value = doctorId
+                };
+                command.Parameters.Add(doctorIdParam);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public void DeleteRecordAndSickLeave(int recordId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(_deleteRecord, connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                SqlParameter recordIdParam = new SqlParameter
+                {
+                    ParameterName = "@record_id",
+                    Value = recordId
+                };
+                command.Parameters.Add(recordIdParam);
+
+                command.ExecuteNonQuery();
+            }
+        }
+
 
         public Record GetRecordById(int recordId)
         {

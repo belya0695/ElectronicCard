@@ -1,0 +1,16 @@
+﻿@model EC.Common.Models.Post
+@{
+    ViewBag.Title = "GetPost";
+    Layout = "~/Views/_EditorHeader.cshtml";
+}
+
+<div class="content">
+    <h2 class="center-elements">Edit Post</h2>
+    @using (Html.BeginForm("UpdatePost", "Post"))
+    {
+        <label for="postName">Change post name:</label>
+        <input type="text" name="postId" value="@Model.PostId" hidden />
+        <input type="text" name="postName" value="@Model.PostName" />
+        <input type="submit" value="Update" />
+    }
+</div>

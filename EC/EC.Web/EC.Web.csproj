@@ -109,8 +109,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Exceptions\exception-page-style.css" />
-    <Content Include="Content\Exceptions\500.html" />
     <Content Include="Content\Images\noAdv.jpg" />
     <Content Include="Content\Scripts\jquery-3.2.1.min.js" />
     <Content Include="Content\Scripts\search-page-ajax.js" />
@@ -130,11 +128,15 @@
     <Compile Include="AuthAttributes\Models\UserPrincipal.cs" />
     <Compile Include="AuthAttributes\PatientAttribute.cs" />
     <Compile Include="Controllers\AdvController.cs" />
+    <Compile Include="Controllers\DiagnosisController.cs" />
+    <Compile Include="Controllers\DrugController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\PatientController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
+    <Compile Include="Controllers\ProcedureController.cs" />
     <Compile Include="Controllers\RecordsController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DependencyResolution\ControllerConvention.cs" />
     <Compile Include="DependencyResolution\DefaultRegistry.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
@@ -157,7 +159,6 @@
     <Content Include="Views\_EditorHeader.cshtml" />
     <Content Include="Views\Records\GetRecordsList.cshtml" />
     <Content Include="Views\Patient\GetPatientList.cshtml" />
-    <Content Include="Views\Home\EditorStartPage.cshtml" />
     <Content Include="Views\Adv\AdvBlock.cshtml" />
     <Content Include="Views\Records\GetRecord.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
@@ -167,6 +168,24 @@
     <Content Include="Views\Login\Denied.cshtml" />
     <Content Include="Views\Search\SearchPage.cshtml" />
     <Content Include="Views\Shared\RecordsList.cshtml" />
+    <Content Include="Views\Home\EditorStartPage.cshtml" />
+    <Content Include="Views\Drug\DrugsList.cshtml" />
+    <Content Include="Views\Drug\GetDrug.cshtml" />
+    <Content Include="Views\Drug\AddDrug.cshtml" />
+    <Content Include="Views\Procedure\ProceduresList.cshtml" />
+    <Content Include="Views\Procedure\AddProcedure.cshtml" />
+    <Content Include="Views\Procedure\GetProcedure.cshtml" />
+    <Content Include="Views\Shared\ServerError.cshtml" />
+    <Content Include="Views\Diagnosis\DiagnosesList.cshtml" />
+    <Content Include="Views\Diagnosis\AddDiagnosis.cshtml" />
+    <Content Include="Views\Diagnosis\GetDiagnosis.cshtml" />
+    <Content Include="Views\Post\AddPost.cshtml" />
+    <Content Include="Views\Post\PostsList.cshtml" />
+    <Content Include="Views\Post\GetPost.cshtml" />
+    <Content Include="Views\User\GetPatientList.cshtml" />
+    <Content Include="Views\User\GetAllUsers.cshtml" />
+    <Content Include="Views\User\GetUserByLogin.cshtml" />
+    <Content Include="Views\User\AddUser.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

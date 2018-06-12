@@ -1,0 +1,16 @@
+﻿@model IEnumerable<EC.Common.Models.User>
+@{
+    ViewBag.Title = "PatientList";
+    Layout = "~/Views/_MainHeader.cshtml";
+}
+
+<div class="content">
+    <h2 class="center-elements">PatientList</h2>
+    @foreach (var user in Model)
+    {
+    <div class="bordered-content">
+        <p>@user.FirstName @user.LastName @user.MiddleName</p>
+        <p>@user.BirthDate</p>
+    </div>
+    }
+</div>

@@ -13,6 +13,16 @@ namespace EC.Business.Providers
             _recordRepository = recordRepository;
         }
 
+        public void AddRecordAndSickLeave(int patientId, int diagnosisId, int doctorId)
+        {
+            _recordRepository.AddRecordAndSickLeave(patientId, diagnosisId, doctorId);
+        }
+
+        public void DeleteRecordAndSickLeave(int recordId)
+        {
+            _recordRepository.DeleteRecordAndSickLeave(recordId);
+        }
+
         public Record GetRecordById(int recordId)
         {
             return _recordRepository.GetRecordById(recordId);
