@@ -27,11 +27,13 @@ namespace EC.Web.Controllers
             return View(_userProvider.GetAllPatients(((UserPrincipal)User).UserId));
         }
 
+        [Admin]
         public ActionResult GetAllUsers()
         {
             return View(_userProvider.GetAllUsers());
         }
 
+        [Admin]
         public ActionResult AddUser()
         {
             ViewBag.Roles = ListForRoles();
@@ -39,6 +41,7 @@ namespace EC.Web.Controllers
             return View();
         }
 
+        [Admin]
         [HttpPost]
         public ActionResult AddUser(string firstName, string middleName, string lastName, int postId, DateTime birthdate, string workplace, string email, string phone, string login, string pass, int roleId)
         {
@@ -54,17 +57,20 @@ namespace EC.Web.Controllers
             }
         }
 
+        [Admin]
         public ActionResult GetUserByLogin(string login)
         {
             return View(_userProvider.GetUserByLogin(login));
         }
 
+        [Admin]
         public ActionResult UpdateUser(int userId, string firstName, string middleName, string lastName, int postId, DateTime birthdate, string workplace, string email)
         {
             _userProvider.UpdateUser(userId, firstName, middleName, lastName, postId, birthdate, workplace, email);
             return Redirect("~/User/GetAllUsers");
         }
 
+        [Admin]
         public ActionResult DeleteUserAndHisPhone(int userId)
         {
             try
