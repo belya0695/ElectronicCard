@@ -1,5 +1,6 @@
 ﻿using EC.Business.Providers;
 using EC.Common.Log;
+using System;
 using System.Web.Mvc;
 
 namespace EC.Web.Controllers
@@ -34,8 +35,16 @@ namespace EC.Web.Controllers
 
         public ActionResult DeleteProcedure(int procedureId)
         {
-            _procedureProvider.DeleteProcedure(procedureId);
-            return Redirect("~/Procedure/ProceduresList");
+            try
+            {
+                _procedureProvider.DeleteProcedure(procedureId);
+                return Redirect("~/Procedure/ProceduresList");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return Redirect("/Error/ServerError");
+            }
         }
 
         [HttpPost]

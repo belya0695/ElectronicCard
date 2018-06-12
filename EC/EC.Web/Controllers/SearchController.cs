@@ -27,14 +27,6 @@ namespace EC.Web.Controllers
 
         public ActionResult SearchByDate(DateTime date)
         {
-            //try
-            //{
-
-            //}
-            //catch
-            //{
-
-            //}
             Record[] records = _recordProvider.GetRecordByPatientIdAndDate(((UserPrincipal)User).UserId, date);
             return View("RecordsList", records);
         }

@@ -42,12 +42,20 @@ namespace EC.Web.Controllers
         [HttpPost]
         public ActionResult AddUser(string firstName, string middleName, string lastName, int postId, DateTime birthdate, string workplace, string email, string phone, string login, string pass, int roleId)
         {
-            _userProvider.AddUserWithLoginAndPhone(firstName, middleName, lastName, postId, birthdate, workplace, email, phone, login, pass, roleId);
-            return Redirect("~/User/GetAllUsers");
+            try
+            {
+                _userProvider.AddUserWithLoginAndPhone(firstName, middleName, lastName, postId, birthdate, workplace, email, phone, login, pass, roleId);
+                return Redirect("~/User/GetAllUsers");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return Redirect("/Error/ServerError");
+            }
         }
 
         public ActionResult GetUserByLogin(string login)
-        {           
+        {
             return View(_userProvider.GetUserByLogin(login));
         }
 
@@ -64,10 +72,10 @@ namespace EC.Web.Controllers
                 _userProvider.DeleteUserAndHisPhone(userId);
                 return Redirect("~/User/GetAllUsers");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
-                return View("ServerError");
+                return Redirect("/Error/ServerError");
             }
         }
 

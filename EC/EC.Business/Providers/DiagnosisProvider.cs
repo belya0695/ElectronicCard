@@ -1,5 +1,6 @@
 ﻿using EC.Common.Models;
 using EC.DA.Repositories;
+using System;
 
 namespace EC.Business.Providers
 {

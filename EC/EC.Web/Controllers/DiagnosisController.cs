@@ -29,6 +29,7 @@ namespace EC.Web.Controllers
         [HttpPost]
         public ActionResult AddDiagnosis(string diagnosisName)
         {
+
             _diagnosisProvider.AddDiagnosis(diagnosisName);
             return Redirect("~/Diagnosis/DiagnosesList");
         }
@@ -40,10 +41,10 @@ namespace EC.Web.Controllers
                 _diagnosisProvider.DeleteDiagnosis(diagnosisId);
                 return Redirect("~/Diagnosis/DiagnosesList");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
-                return View("ServerError");
+                return Redirect("/Error/ServerError");
             }
         }
 
