@@ -43,7 +43,7 @@ namespace EC.Web.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
-                return View("ServerError");
+                return Redirect("/Error/ServerError");
             }
         }
 

@@ -33,7 +33,7 @@ namespace EC.Web.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
-                return View("Error", (object)"Login error");
+                return Redirect("/Error/ServerError");
             }
             if (result == LoginResult.NoError)
             {
@@ -57,7 +57,7 @@ namespace EC.Web.Controllers
         public ActionResult Logout()
         {
             _authService.Logout();
-            return RedirectToAction("Login","Login");
+            return RedirectToAction("Login", "Login");
         }
 
         public ActionResult Denied(string requiredRole)

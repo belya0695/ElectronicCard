@@ -1,5 +1,6 @@
 ﻿using EC.Business.Providers;
 using EC.Common.Log;
+using System;
 using System.Web.Mvc;
 
 namespace EC.Web.Controllers
@@ -17,6 +18,7 @@ namespace EC.Web.Controllers
 
         public ActionResult DrugsList()
         {
+
             return View(_drugProvider.GetDrugs());
         }
 
@@ -28,14 +30,23 @@ namespace EC.Web.Controllers
         [HttpPost]
         public ActionResult AddDrug(string drugName)
         {
+
             _drugProvider.AddDrug(drugName);
             return Redirect("~/Drug/DrugsList");
         }
 
         public ActionResult DeleteDrug(int drugId)
         {
-            _drugProvider.DeleteDrug(drugId);
-            return Redirect("~/Drug/DrugsList");
+            try
+            {
+                _drugProvider.DeleteDrug(drugId);
+                return Redirect("~/Drug/DrugsList");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return Redirect("/Error/ServerError");
+            }
         }
 
         [HttpPost]

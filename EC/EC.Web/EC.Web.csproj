@@ -130,6 +130,7 @@
     <Compile Include="Controllers\AdvController.cs" />
     <Compile Include="Controllers\DiagnosisController.cs" />
     <Compile Include="Controllers\DrugController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PostController.cs" />
@@ -164,7 +165,6 @@
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\Records\GetRecordByPatientIdAndDate.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Login\Denied.cshtml" />
     <Content Include="Views\Search\SearchPage.cshtml" />
     <Content Include="Views\Shared\RecordsList.cshtml" />
@@ -175,7 +175,6 @@
     <Content Include="Views\Procedure\ProceduresList.cshtml" />
     <Content Include="Views\Procedure\AddProcedure.cshtml" />
     <Content Include="Views\Procedure\GetProcedure.cshtml" />
-    <Content Include="Views\Shared\ServerError.cshtml" />
     <Content Include="Views\Diagnosis\DiagnosesList.cshtml" />
     <Content Include="Views\Diagnosis\AddDiagnosis.cshtml" />
     <Content Include="Views\Diagnosis\GetDiagnosis.cshtml" />
@@ -186,6 +185,8 @@
     <Content Include="Views\User\GetAllUsers.cshtml" />
     <Content Include="Views\User\GetUserByLogin.cshtml" />
     <Content Include="Views\User\AddUser.cshtml" />
+    <Content Include="Views\Error\ServerError.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
