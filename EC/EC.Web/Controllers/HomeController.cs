@@ -22,7 +22,7 @@ namespace EC.Web.Controllers
             catch (ArgumentException ex)
             {
                 _logger.LogInfo(ex.Message);
-                return View("ServerError");
+                return Redirect ("~/Error/ServerError");
             }
         }
 
