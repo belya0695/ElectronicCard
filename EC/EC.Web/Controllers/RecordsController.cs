@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
+using System.Web.UI;
 using EC.Business.Providers;
 using EC.Common.Log;
 using EC.Web.AuthAttributes;
@@ -19,9 +20,10 @@ namespace EC.Web.Controllers
         }
 
         [Patient]
+        [OutputCache(Duration = 300, Location = OutputCacheLocation.Client)]
         public ActionResult GetRecordsList()
         {
-            return View(_recordProvider.GetRecordDatesByPatientId(((UserPrincipal)User).UserId));//TODO id
+            return View(_recordProvider.GetRecordDatesByPatientId(((UserPrincipal)User).UserId));
         }
 
         [Patient]
@@ -31,10 +33,11 @@ namespace EC.Web.Controllers
         }
 
         [Patient]
+        [OutputCache(Duration = 300, Location = OutputCacheLocation.Client)]
         public ActionResult GetRecordByPatientIdAndDate(DateTime date)
         {
             ViewBag.Date = date.ToString("d");
-            return View(_recordProvider.GetRecordByPatientIdAndDate(((UserPrincipal)User).UserId, date)); //TODO id во вьюхе ставится 8
+            return View(_recordProvider.GetRecordByPatientIdAndDate(((UserPrincipal)User).UserId, date));
         }
     }
 }
