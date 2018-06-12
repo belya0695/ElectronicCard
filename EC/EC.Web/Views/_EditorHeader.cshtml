@@ -10,7 +10,7 @@
     <a href="~/Diagnosis/DiagnosesList" class="left-bar-ref">Diagnoses</a><br /> <br />
     @if (HttpContext.Current.User.IsInRole("admin"))
     {
-        <a href="" class="left-bar-ref">Users</a>
+        <a href="~/User/GetAllUsers" class="left-bar-ref">Users</a>
     }
 </div>
 

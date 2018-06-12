@@ -22,7 +22,7 @@ namespace EC.Web.Controllers
 
         public FileResult GetImage(int id)
         {
-            Image img = _advProvider.GetAdvertisings(1).SingleOrDefault();
+            Image img = _advProvider.GetAdvertisings(1)?.SingleOrDefault();
             if (img == null)
             {
                 var dir = Server.MapPath("/Content/Images");

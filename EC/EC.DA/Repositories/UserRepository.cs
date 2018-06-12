@@ -8,15 +8,16 @@ namespace EC.DA.Repositories
 {
     public class UserRepository : IUserRepository
     {
-
         private readonly string _addLogin = "AddLogin";
         private readonly string _addUserWithLoginAndPhone = "AddUserWithLoginAndPhone";
         private readonly string _deleteLogin = "DeleteLogin";
-        private readonly string _deleteUserAndHisPhone = "DeleteUserAndHisPhone";
+        private readonly string _deleteUserAndHisPhone = "DeleteUserAndHisPhones";
         private readonly string _userByLogin = "GetUserByLogin";
         private readonly string _rolesById = "GetRolesById";
         private readonly string _getAllUsers = "GetAllUsers";
         private readonly string _updateUser = "UpdateUser";
+        private readonly string _getAllPatients = "GetAllPatients";
+        private readonly string _allRoles = "GetAllRoles";
 
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["EcDbConnection"].ConnectionString;
 
@@ -176,6 +177,74 @@ namespace EC.DA.Repositories
             }
         }
 
+        public User[] GetAllPatients(int doctorId)
+        {
+            List<User> users = new List<User>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(_getAllPatients, connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+                SqlParameter doctorIdParam = new SqlParameter
+                {
+                    ParameterName = "@doctor_id",
+                    Value = doctorId
+                };
+                command.Parameters.Add(doctorIdParam);
+                var reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        var user = new User
+                        {
+                            UserId = int.Parse(reader["user_id"].ToString()),
+                            FirstName = reader["first_name"].ToString(),
+                            MiddleName = reader["middle_name"].ToString(),
+                            LastName = reader["last_name"].ToString(),
+                            BirthDate = DateTime.Parse(reader["birthdate"].ToString())
+                        };
+                        users.Add(user);
+                    }
+                }
+                reader.Close();
+            }
+            return users.ToArray();
+        }
+
+        public Role[] GetAllRoles()
+        {
+            List<Role> roles = new List<Role>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(_allRoles, connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                var reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        var role = new Role
+                        {
+                            RoleId = int.Parse(reader["role_id"].ToString()),
+                            RoleName = reader["role_name"].ToString()
+                        };
+                        roles.Add(role);
+                    }
+                }
+                reader.Close();
+            }
+            return roles.ToArray();
+        }
+
         public User[] GetAllUsers()
         {
             List<User> users = new List<User>();
@@ -207,7 +276,8 @@ namespace EC.DA.Repositories
                             },
                             BirthDate = DateTime.Parse(reader["birthdate"].ToString()),
                             Workplace = reader["workplace"].ToString(),
-                            Email = reader["email"].ToString()
+                            Email = reader["email"].ToString(),
+                            Login = reader["login"].ToString()
                         };
                         users.Add(user);
                     }
@@ -304,6 +374,12 @@ namespace EC.DA.Repositories
                 {
                     CommandType = System.Data.CommandType.StoredProcedure
                 };
+                SqlParameter userIdParam = new SqlParameter
+                {
+                    ParameterName = "@user_id",
+                    Value = userId
+                };
+                command.Parameters.Add(userIdParam);
                 SqlParameter firstNameParam = new SqlParameter
                 {
                     ParameterName = "@first_name",
@@ -349,5 +425,7 @@ namespace EC.DA.Repositories
                 command.ExecuteNonQuery();
             }
         }
+
+        
     }
 }

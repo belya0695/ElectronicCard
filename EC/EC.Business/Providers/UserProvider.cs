@@ -33,6 +33,16 @@ namespace EC.Business.Providers
             _userRepository.DeleteUserAndHisPhone(userId);
         }
 
+        public User[] GetAllPatients(int doctorId)
+        {
+            return _userRepository.GetAllPatients(doctorId);
+        }
+
+        public Role[] GetAllRoles()
+        {
+            return _userRepository.GetAllRoles();
+        }
+
         public User[] GetAllUsers()
         {
             return _userRepository.GetAllUsers();

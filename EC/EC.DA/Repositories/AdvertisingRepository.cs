@@ -22,6 +22,8 @@ namespace EC.DA.Repositories
             try
             {
                 Advertising[] adv = _advClient.GetAdvertising(count);
+                if (adv == null)
+                    return null;
                 Image[] advImages = new Image[count];
                 for (int i = 0; i < count; i++)
                 {
@@ -37,7 +39,7 @@ namespace EC.DA.Repositories
             {
                 _logger.LogError(ex.Reason.ToString());
                 return null;
-            }             
+            }
         }
     }
 }

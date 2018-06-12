@@ -12,5 +12,7 @@ namespace EC.Business.Providers
         User[] GetAllUsers();
         void AddLogin(string login, string pass, int userId, int roleId);
         void DeleteLogin(string login);
+        User[] GetAllPatients(int doctorId);
+        Role[] GetAllRoles();
     }
 }

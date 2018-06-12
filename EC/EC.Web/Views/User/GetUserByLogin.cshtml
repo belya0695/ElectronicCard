@@ -1,0 +1,32 @@
+﻿@model EC.Common.Models.User
+@{
+    ViewBag.Title = "GetUserByLogin";
+    Layout = "~/Views/_EditorHeader.cshtml";
+}
+
+<div class="content">
+    <h2 class="center-elements">Edit User</h2>
+    @using (Html.BeginForm("UpdateUser", "User"))
+    {
+        <input type="text" name="userId" value="@Model.UserId" hidden />
+        <input type="text" name="postId" value="@Model.UserPost.PostId" hidden />
+
+        <label for="firstName">User's first name:</label>
+        <input type="text" name="firstName" value="@Model.FirstName" />
+        <label for="middleName">User's middle name:</label>
+        <input type="text" name="middleName" value="@Model.MiddleName" />
+        <label for="lastName">User's last name:</label>
+        <input type="text" name="lastName" value="@Model.FirstName" />
+
+        <label for="birthdate">User's birthdate:</label>
+        <input type="date" name="birthdate" value="@Model.BirthDate.ToString("yyyy-MM-dd")" />
+
+        <label for="workplace">User's workplace:</label>
+        <input type="text" name="workplace" value="@Model.Workplace" />
+
+        <label for="email">User's email:</label>
+        <input type="text" name="email" value="@Model.Email" />
+
+        <input type="submit" value="Update" />
+    }
+</div>
