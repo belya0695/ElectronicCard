@@ -51,6 +51,9 @@
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="StructureMap, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\structuremap.3.1.1.134\lib\net40\StructureMap.dll</HintPath>
     </Reference>
@@ -106,9 +109,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Exceptions\exception-page-style.css" />
-    <Content Include="Content\Exceptions\500.html" />
     <Content Include="Content\Images\noAdv.jpg" />
+    <Content Include="Content\Scripts\jquery-3.2.1.min.js" />
+    <Content Include="Content\Scripts\search-page-ajax.js" />
+    <Content Include="Content\Scripts\search-page-radio.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
@@ -118,10 +122,22 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\StructuremapMvc.cs" />
+    <Compile Include="AuthAttributes\AdminAttribute.cs" />
+    <Compile Include="AuthAttributes\DoctorAttribute.cs" />
+    <Compile Include="AuthAttributes\EditorAttribute.cs" />
+    <Compile Include="AuthAttributes\Models\UserPrincipal.cs" />
+    <Compile Include="AuthAttributes\PatientAttribute.cs" />
     <Compile Include="Controllers\AdvController.cs" />
+    <Compile Include="Controllers\DiagnosisController.cs" />
+    <Compile Include="Controllers\DrugController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PatientController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
+    <Compile Include="Controllers\ProcedureController.cs" />
     <Compile Include="Controllers\RecordsController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DependencyResolution\ControllerConvention.cs" />
     <Compile Include="DependencyResolution\DefaultRegistry.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
@@ -144,11 +160,33 @@
     <Content Include="Views\_EditorHeader.cshtml" />
     <Content Include="Views\Records\GetRecordsList.cshtml" />
     <Content Include="Views\Patient\GetPatientList.cshtml" />
-    <Content Include="Views\Home\EditorStartPage.cshtml" />
-    <Content Include="Views\Records\SearchPage.cshtml" />
     <Content Include="Views\Adv\AdvBlock.cshtml" />
     <Content Include="Views\Records\GetRecord.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Views\Records\GetRecordByPatientIdAndDate.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\Denied.cshtml" />
+    <Content Include="Views\Search\SearchPage.cshtml" />
+    <Content Include="Views\Shared\RecordsList.cshtml" />
+    <Content Include="Views\Home\EditorStartPage.cshtml" />
+    <Content Include="Views\Drug\DrugsList.cshtml" />
+    <Content Include="Views\Drug\GetDrug.cshtml" />
+    <Content Include="Views\Drug\AddDrug.cshtml" />
+    <Content Include="Views\Procedure\ProceduresList.cshtml" />
+    <Content Include="Views\Procedure\AddProcedure.cshtml" />
+    <Content Include="Views\Procedure\GetProcedure.cshtml" />
+    <Content Include="Views\Diagnosis\DiagnosesList.cshtml" />
+    <Content Include="Views\Diagnosis\AddDiagnosis.cshtml" />
+    <Content Include="Views\Diagnosis\GetDiagnosis.cshtml" />
+    <Content Include="Views\Post\AddPost.cshtml" />
+    <Content Include="Views\Post\PostsList.cshtml" />
+    <Content Include="Views\Post\GetPost.cshtml" />
+    <Content Include="Views\User\GetPatientList.cshtml" />
+    <Content Include="Views\User\GetAllUsers.cshtml" />
+    <Content Include="Views\User\GetUserByLogin.cshtml" />
+    <Content Include="Views\User\AddUser.cshtml" />
+    <Content Include="Views\Error\ServerError.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

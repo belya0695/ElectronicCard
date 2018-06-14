@@ -68,12 +68,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\IAdvertisingRepository.cs" />
-    <Compile Include="Interfaces\IRecordRepository.cs" />
+    <Compile Include="Repositories\DiagnosisRepository.cs" />
+    <Compile Include="Repositories\DrugRepository.cs" />
+    <Compile Include="Repositories\IAdvertisingRepository.cs" />
+    <Compile Include="Repositories\IDiagnosisRepository.cs" />
+    <Compile Include="Repositories\IDrugRepository.cs" />
+    <Compile Include="Repositories\IPhoneRepository.cs" />
+    <Compile Include="Repositories\IPostRepository.cs" />
+    <Compile Include="Repositories\IProcedureRepository.cs" />
+    <Compile Include="Repositories\IRecordRepository.cs" />
     <Compile Include="Repositories\AdvertisingRepository.cs" />
     <Compile Include="Container\DARegistry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IUserRepository.cs" />
+    <Compile Include="Repositories\PhoneRepository.cs" />
+    <Compile Include="Repositories\PostRepository.cs" />
+    <Compile Include="Repositories\ProcedureRepository.cs" />
     <Compile Include="Repositories\RecordRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -1,6 +1,5 @@
 ﻿using StructureMap.Configuration.DSL;
 using EC.DA.Repositories;
-using EC.DA.Interfaces;
 using EC.DA.Clients;
 
 namespace EC.DA.Container
@@ -12,6 +11,12 @@ namespace EC.DA.Container
             For<IRecordRepository>().Use<RecordRepository>();
             For<IAdvClient>().Use<AdvClient>();
             For<IAdvertisingRepository>().Use<AdvertisingRepository>();
+            For<IUserRepository>().Use<UserRepository>();
+            For<IDiagnosisRepository>().Use<DiagnosisRepository>();
+            For<IDrugRepository>().Use<DrugRepository>();
+            For<IProcedureRepository>().Use<ProcedureRepository>();
+            For<IPostRepository>().Use<PostRepository>();
+            For<IPhoneRepository>().Use<PhoneRepository>();
         }
     }
 }

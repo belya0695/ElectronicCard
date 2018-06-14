@@ -1,0 +1,20 @@
+﻿@model IEnumerable<EC.Common.Models.Procedure>
+@{
+    ViewBag.Title = "ProceduresList";
+    Layout = "~/Views/_EditorHeader.cshtml";
+}
+
+<div class="content">
+    <h2 class="center-elements">Procedures</h2>
+    <a href="~/Procedure/AddProcedure">Add new procedure</a>
+    @foreach (var proc in Model)
+    {
+        <div class="bordered-content">
+            <p>@proc.ProcedureName</p>
+
+            @Html.ActionLink("Edit", "GetProcedure", new { procedureId = proc.ProcedureId })<br />
+            @Html.ActionLink("Delete", "DeleteProcedure", new { procedureId = proc.ProcedureId })
+            <br />
+        </div>
+    }
+</div>

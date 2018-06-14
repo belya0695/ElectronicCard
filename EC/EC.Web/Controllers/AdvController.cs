@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Linq;
 using System.Web.Mvc;
-using EC.Business.Interfaces;
+using EC.Business.Providers;
 using EC.Common.Models;
 
 namespace EC.Web.Controllers
@@ -22,7 +22,7 @@ namespace EC.Web.Controllers
 
         public FileResult GetImage(int id)
         {
-            Image img = _advProvider.GetAdvertisings(1).SingleOrDefault();
+            Image img = _advProvider.GetAdvertisings(1)?.SingleOrDefault();
             if (img == null)
             {
                 var dir = Server.MapPath("/Content/Images");

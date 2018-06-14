@@ -3,22 +3,50 @@
 <head>
     <meta name="viewport" content="width=device-width" charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+    <script src="~/Content/Scripts/jquery-3.2.1.min.js"></script>
     <title>@ViewBag.Title</title>
 </head>
 <body>
     <header>
         <div class="center-elements">
             <a href="~/Home/StartPage">Start Page</a>
-            <a href="~/Records/GetRecordsList">Medical Records</a>
-            <a href="">Personal Information</a>
-            <a href="~/Records/SearchPage">Search</a>
-            <a href="~/Patient/GetPatientList">Pacients list</a>
-            <a href="~/Home/EditorStartPage">Editor</a>
-            <a href="~/Home/EditorStartPage">Administrator</a>
+            @if (HttpContext.Current.User.IsInRole("patient"))
+            {
+                <a href="~/Records/GetRecordsList">Medical Records</a>
+            }
+            @if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                <a href="">Personal Information</a>
+            }
+            @if (HttpContext.Current.User.IsInRole("patient"))
+            {
+                <a href="~/Search/SearchPage">Search</a>
+            }
+            @if (HttpContext.Current.User.IsInRole("doctor"))
+            {
+                <a href="~/User/GetPatientList">Patients list</a>
+            }
+            @if (HttpContext.Current.User.IsInRole("editor"))
+            {
+                <a href="~/Home/EditorStartPage">Editor</a>
+            }
+            @if (HttpContext.Current.User.IsInRole("admin"))
+            {
+                <a href="~/Home/EditorStartPage">Administrator</a>
+            }
+            @if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                <a href="~/Login/Logout">Logout</a>
+            }
+            else
+            {
+                <a href="~/Login/Login">Login</a>
+            }
         </div>
     </header>
     <div class="center-elements">
         @RenderBody()
     </div>
+    @RenderSection("scripts", required: false)
 </body>
 </html>

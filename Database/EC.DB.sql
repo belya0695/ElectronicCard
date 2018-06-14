@@ -1,7 +1,7 @@
 USE [master]
 GO
 
-/****** Object:  Database [EC.DB]    Script Date: 27.05.2018 17:36:15 ******/
+/****** Object:  Database [EC.DB]    Script Date: 12.06.2018 16:07:22 ******/
 CREATE DATABASE [EC.DB]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -141,3 +141,5 @@ GO
 
 ALTER DATABASE [EC.DB] SET  READ_WRITE 
 GO
+
+

@@ -1,8 +1,7 @@
 ﻿using System;
-using EC.Business.Interfaces;
-using EC.DA.Interfaces;
+using EC.DA.Repositories;
 using EC.Common.Models;
-using EC.Common.Loggers;
+using EC.Common.Log;
 
 namespace EC.Business.Providers
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 using EC.DA.AvdService;
-using EC.Common.Loggers;
+using EC.Common.Log;
 
 namespace EC.DA.Clients
 {

@@ -1,0 +1,16 @@
+﻿@model EC.Common.Models.Diagnosis
+@{
+    ViewBag.Title = "GetDiagnosis";
+    Layout = "~/Views/_EditorHeader.cshtml";
+}
+
+<div class="content">
+    <h2 class="center-elements">Edit Diagnosis</h2>
+    @using (Html.BeginForm("UpdateDiagnosis", "Diagnosis"))
+    {
+    <label for="diagnosisName">Change diagnosis name:</label>
+        <input type="text" name="diagnosisId" value="@Model.DiagnosisId" hidden />
+        <input type="text" name="diagnosisName" value="@Model.DiagnosisName" />
+        <input type="submit" value="Update" />
+    }
+</div>

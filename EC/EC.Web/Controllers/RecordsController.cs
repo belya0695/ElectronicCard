@@ -1,30 +1,43 @@
-﻿using System.Web.Mvc;
-using EC.Business.Interfaces;
+﻿using System;
+using System.Web.Mvc;
+using System.Web.UI;
+using EC.Business.Providers;
+using EC.Common.Log;
+using EC.Web.AuthAttributes;
+using EC.Web.AuthAttributes.Models;
 
 namespace EC.Web.Controllers
 {
     public class RecordsController : Controller
     {
         private readonly IRecordProvider _recordProvider;
+        private readonly ILogger _logger;
 
-        public RecordsController(IRecordProvider recordProvider)
+        public RecordsController(IRecordProvider recordProvider, ILogger logger)
         {
             _recordProvider = recordProvider;
+            _logger = logger;
         }
 
+        [Patient]
+        [OutputCache(Duration = 300, Location = OutputCacheLocation.Client)]
         public ActionResult GetRecordsList()
         {
-            return View(_recordProvider.GetRecordDatesByPatientId(8));//TODO id
+            return View(_recordProvider.GetRecordDatesByPatientId(((UserPrincipal)User).UserId));
         }
 
+        [Patient]
         public ActionResult GetRecord(int id)
         {
             return View(_recordProvider.GetRecordById(id));
         }
 
-        public ActionResult SearchPage()
+        [Patient]
+        [OutputCache(Duration = 300, Location = OutputCacheLocation.Client)]
+        public ActionResult GetRecordByPatientIdAndDate(DateTime date)
         {
-            return View();
+            ViewBag.Date = date.ToString("d");
+            return View(_recordProvider.GetRecordByPatientIdAndDate(((UserPrincipal)User).UserId, date));
         }
     }
 }

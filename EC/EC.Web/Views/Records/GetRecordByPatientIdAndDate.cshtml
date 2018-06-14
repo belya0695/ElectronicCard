@@ -1,0 +1,20 @@
+﻿@model IEnumerable<EC.Common.Models.Record>
+@{
+    ViewBag.Title = "GetRecordsList";
+    Layout = "~/Views/_MainHeader.cshtml";
+}
+
+<h2 class="center-elements">This day (@ViewBag.date) you visited:</h2>
+@foreach (var rec in Model)
+{
+    <div class="record-text">
+        <ul class="col-1">
+            <li>Diagnosis</li>
+            <li>Doctors Name (post)</li>
+        </ul>
+        <ul class="col-2">
+            <li>@rec.diagnosisName</li>
+            <li>@rec.doctorsFirstName @rec.doctorsLastName (@rec.doctorsPost)</li>
+        </ul>
+    </div>
+}

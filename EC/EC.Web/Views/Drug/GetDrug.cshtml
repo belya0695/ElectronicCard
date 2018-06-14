@@ -1,0 +1,16 @@
+﻿@model EC.Common.Models.Drug
+@{
+    ViewBag.Title = "GetDrug";
+    Layout = "~/Views/_EditorHeader.cshtml";
+}
+
+<div class="content">
+    <h2 class="center-elements">Edit Drug</h2>
+    @using (Html.BeginForm("UpdateDrug", "Drug"))
+    {
+        <label for="drugName">Change drug name:</label>
+        <input type="text" name="drugId" value="@Model.DrugId" hidden />
+        <input type="text" name="drugName" value="@Model.DrugName" />
+        <input type="submit" value="Update" />
+    }
+</div>
