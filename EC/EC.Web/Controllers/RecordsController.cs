@@ -20,7 +20,6 @@ namespace EC.Web.Controllers
         }
 
         [Patient]
-        [OutputCache(Duration = 300, Location = OutputCacheLocation.Client)]
         public ActionResult GetRecordsList()
         {
             return View(_recordProvider.GetRecordDatesByPatientId(((UserPrincipal)User).UserId));
@@ -33,7 +32,6 @@ namespace EC.Web.Controllers
         }
 
         [Patient]
-        [OutputCache(Duration = 300, Location = OutputCacheLocation.Client)]
         public ActionResult GetRecordByPatientIdAndDate(DateTime date)
         {
             ViewBag.Date = date.ToString("d");
