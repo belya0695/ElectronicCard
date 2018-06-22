@@ -5,6 +5,7 @@ using System;
 using System.Web.Mvc;
 using EC.Web.AuthAttributes.Models;
 using EC.Common.Models;
+using EC.Web.Models;
 
 namespace EC.Web.Controllers
 {
@@ -38,17 +39,26 @@ namespace EC.Web.Controllers
         {
             ViewBag.Roles = ListForRoles();
             ViewBag.Posts = ListForPosts();
+            
             return View();
         }
 
         [Admin]
         [HttpPost]
-        public ActionResult AddUser(string firstName, string middleName, string lastName, int postId, DateTime birthdate, string workplace, string email, string phone, string login, string pass, int roleId)
+        public ActionResult AddUser(UserAddViewModel userAdd)
         {
             try
             {
-                _userProvider.AddUserWithLoginAndPhone(firstName, middleName, lastName, postId, birthdate, workplace, email, phone, login, pass, roleId);
+                if (ModelState.IsValid) {
+                    _userProvider.AddUserWithLoginAndPhone(userAdd.FirstName, userAdd.MiddleName, userAdd.LastName, userAdd.UserPostId, userAdd.BirthDate, userAdd.Workplace, userAdd.Email, userAdd.Phone, userAdd.Login, userAdd.Password, userAdd.UserRoleId);
                 return Redirect("~/User/GetAllUsers");
+                }
+                else
+                {
+                    ViewBag.Roles = ListForRoles();
+                    ViewBag.Posts = ListForPosts();
+                    return View(userAdd);
+                }
             }
             catch (Exception ex)
             {
@@ -88,14 +98,14 @@ namespace EC.Web.Controllers
         private MultiSelectList ListForRoles()
         {
             Role[] roles = _userProvider.GetAllRoles();
-            MultiSelectList multiSelectList = new MultiSelectList(roles, "roleId", "RoleName");
+            MultiSelectList multiSelectList = new MultiSelectList(roles, "RoleId", "RoleName");
             return multiSelectList;
         }
 
         private MultiSelectList ListForPosts()
         {
             Post[] posts = _postProvider.GetPosts();
-            MultiSelectList multiSelectList = new MultiSelectList(posts, "postId", "PostName");
+            MultiSelectList multiSelectList = new MultiSelectList(posts, "PostId", "PostName");
             return multiSelectList;
         }
     }
