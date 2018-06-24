@@ -70,7 +70,7 @@ namespace EC.Web.Controllers
         [Admin]
         public ActionResult GetUserByLogin(string login)
         {
-            return View(_userProvider.GetUserByLogin(login));
+            return View(ConvertUserToUpdateViewModel(_userProvider.GetUserByLogin(login)));
         }
 
         [Admin]
@@ -107,6 +107,23 @@ namespace EC.Web.Controllers
             Post[] posts = _postProvider.GetPosts();
             MultiSelectList multiSelectList = new MultiSelectList(posts, "PostId", "PostName");
             return multiSelectList;
+        }
+
+        private UserUpdateViewModel ConvertUserToUpdateViewModel(User user)
+        {
+            UserUpdateViewModel userViewModel = new UserUpdateViewModel()
+            {
+                UserId = user.UserId,
+                FirstName = user.FirstName,
+                MiddleName = user.MiddleName,
+                LastName = user.LastName,
+                Workplace = user.Workplace,
+                Email = user.Email,
+                BirthDate = user.BirthDate,
+                UserPostId = user.UserPost.PostId,
+                UserRoleId = user.Roles[0].RoleId
+            };
+            return userViewModel;
         }
     }
 }

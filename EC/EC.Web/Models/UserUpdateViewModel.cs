@@ -1,11 +1,12 @@
 ﻿using System;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace EC.Web.Models
 {
-    public class UserAddViewModel
+    public class UserUpdateViewModel
     {
+        public int UserId { get; set; }
+
         [Required(ErrorMessage = "Please enter First Name")]
         public string FirstName { get; set; }
 
@@ -24,17 +25,6 @@ namespace EC.Web.Models
         [Required(ErrorMessage = "Please enter Email")]
         [RegularExpression(@".+\@.+\..+", ErrorMessage = "Please enter a valid Email")]
         public string Email { get; set; }
-
-        [Required(ErrorMessage = "Please enter Password")]
-        [PasswordPropertyText(true)]
-        public string Password { get; set; }
-
-        [Required(ErrorMessage = "Please enter Login")]
-        public string Login { get; set; }
-
-        [Required(ErrorMessage = "Please enter Phone")]
-        [Phone]
-        public string Phone { get; set; }
 
         [Required(ErrorMessage = "Please enter Post")]
         public int UserPostId { get; set; }
