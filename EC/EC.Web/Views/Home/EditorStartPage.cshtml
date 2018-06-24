@@ -5,15 +5,16 @@
 }
 
 <div class="content">
-    <h2 class="center-elements">Editor</h2>
     @if (HttpContext.Current.User.IsInRole("admin"))
     {
+        <h2 class="center-elements">Admin</h2>
         <div class="description-text">
             You can edit any information including user data.
         </div>
     }
     else
     {
+        <h2 class="center-elements">Editor</h2>
         <div class="description-text">
             You can edit any information except user data.
         </div>

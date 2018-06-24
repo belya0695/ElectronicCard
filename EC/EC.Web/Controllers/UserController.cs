@@ -70,13 +70,14 @@ namespace EC.Web.Controllers
         [Admin]
         public ActionResult GetUserByLogin(string login)
         {
+            ViewBag.Posts = ListForPosts();
             return View(ConvertUserToUpdateViewModel(_userProvider.GetUserByLogin(login)));
         }
 
         [Admin]
-        public ActionResult UpdateUser(int userId, string firstName, string middleName, string lastName, int postId, DateTime birthdate, string workplace, string email)
+        public ActionResult UpdateUser(UserUpdateViewModel userUpdate)
         {
-            _userProvider.UpdateUser(userId, firstName, middleName, lastName, postId, birthdate, workplace, email);
+            _userProvider.UpdateUser(userUpdate.UserId, userUpdate.FirstName, userUpdate.MiddleName, userUpdate.LastName, userUpdate.UserPostId, userUpdate.BirthDate, userUpdate.Workplace, userUpdate.Email);
             return Redirect("~/User/GetAllUsers");
         }
 

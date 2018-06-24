@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EC.Web.ValidationAttributes;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace EC.Web.Models
@@ -17,6 +18,7 @@ namespace EC.Web.Models
         public string LastName { get; set; }
 
         [Required(ErrorMessage = "Please enter BirthDate")]
+        [DateRange(ErrorMessage = "Please enter a valid BirthDate")]
         public DateTime BirthDate { get; set; }
 
         [Required(ErrorMessage = "Please enter Workplace")]
