@@ -39,7 +39,7 @@ namespace EC.Web.Controllers
         {
             ViewBag.Roles = ListForRoles();
             ViewBag.Posts = ListForPosts();
-            
+
             return View();
         }
 
@@ -49,9 +49,10 @@ namespace EC.Web.Controllers
         {
             try
             {
-                if (ModelState.IsValid) {
+                if (ModelState.IsValid)
+                {
                     _userProvider.AddUserWithLoginAndPhone(userAdd.FirstName, userAdd.MiddleName, userAdd.LastName, userAdd.UserPostId, userAdd.BirthDate, userAdd.Workplace, userAdd.Email, userAdd.Phone, userAdd.Login, userAdd.Password, userAdd.UserRoleId);
-                return Redirect("~/User/GetAllUsers");
+                    return Redirect("~/User/GetAllUsers");
                 }
                 else
                 {
@@ -77,8 +78,24 @@ namespace EC.Web.Controllers
         [Admin]
         public ActionResult UpdateUser(UserUpdateViewModel userUpdate)
         {
-            _userProvider.UpdateUser(userUpdate.UserId, userUpdate.FirstName, userUpdate.MiddleName, userUpdate.LastName, userUpdate.UserPostId, userUpdate.BirthDate, userUpdate.Workplace, userUpdate.Email);
-            return Redirect("~/User/GetAllUsers");
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _userProvider.UpdateUser(userUpdate.UserId, userUpdate.FirstName, userUpdate.MiddleName, userUpdate.LastName, userUpdate.UserPostId, userUpdate.BirthDate, userUpdate.Workplace, userUpdate.Email);
+                    return Redirect("~/User/GetAllUsers");
+                }
+                else
+                {
+                    ViewBag.Posts = ListForPosts();
+                    return View("GetUserByLogin", userUpdate);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return Redirect("/Error/ServerError");
+            }
         }
 
         [Admin]

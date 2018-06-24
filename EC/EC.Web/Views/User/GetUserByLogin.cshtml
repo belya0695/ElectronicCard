@@ -21,7 +21,7 @@
         @Html.EditorFor(u => u.LastName)<br />
 
         <label for="birthdate">User's birthdate:</label>
-        <input type="date" name="birthdate" value="@Model.BirthDate.ToString("yyyy-MM-dd")" /><br />
+        @Html.TextBoxFor(u => u.BirthDate, "{0:yyyy-MM-dd}", new { type = "date" })<br />
 
         <label for="workplace">User's workplace:</label>
         @Html.EditorFor(u => u.Workplace)<br />
