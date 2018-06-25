@@ -1,4 +1,4 @@
-﻿@model EC.Common.Models.Diagnosis
+﻿@model EC.Web.Models.DiagnosisViewModel
 @{
     ViewBag.Title = "AddDiagnosis";
     Layout = "~/Views/_EditorHeader.cshtml";
@@ -6,11 +6,12 @@
 
 <div class="content">
     <h2 class="center-elements">AddDiagnosis</h2>
+    @Html.ValidationSummary()
     @using (Html.BeginForm("AddDiagnosis", "Diagnosis"))
     {
         <label for="diagnosisName">Enter diagnosis name:</label>
-        <input type="text" name="diagnosisId" value="" hidden />
-        <input type="text" name="diagnosisName" value="" />
+        @Html.EditorFor(d => d.DiagnosisName)
+
         <input type="submit" value="Add" />
     }
 </div>

@@ -1,15 +1,16 @@
-﻿@model EC.Common.Models.Drug
+﻿@model EC.Web.Models.DrugViewModel
 @{
     ViewBag.Title = "AddDrug";
     Layout = "~/Views/_EditorHeader.cshtml";
 }
 <div class="content">
     <h2 class="center-elements">AddDrug</h2>
+    @Html.ValidationSummary()
     @using (Html.BeginForm("AddDrug", "Drug"))
     {
         <label for="drugName">Enter drug name:</label>
-        <input type="text" name="drugId" value="" hidden />
-        <input type="text" name="drugName" value="" />
+        @Html.EditorFor(d => d.DrugName)
+
         <input type="submit" value="Add" />
     }
 </div>

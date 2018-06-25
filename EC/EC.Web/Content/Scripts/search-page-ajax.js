@@ -51,8 +51,8 @@
             var label = $("#search-results");
             label.html(result);
         };
-        var name = $("#name").val();
-        var data = "name=" + name;
+        var post = $("#post").val();
+        var data = "post=" + post;
         _makeCall(_urlSearchByPost, data, callback);
     }
 

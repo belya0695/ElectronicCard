@@ -1,4 +1,4 @@
-﻿@model EC.Common.Models.Post
+﻿@model EC.Web.Models.PostViewModel
 @{
     ViewBag.Title = "GetPost";
     Layout = "~/Views/_EditorHeader.cshtml";
@@ -6,11 +6,14 @@
 
 <div class="content">
     <h2 class="center-elements">Edit Post</h2>
+    @Html.ValidationSummary()
     @using (Html.BeginForm("UpdatePost", "Post"))
     {
-        <label for="postName">Change post name:</label>
         <input type="text" name="postId" value="@Model.PostId" hidden />
-        <input type="text" name="postName" value="@Model.PostName" />
+
+        <label for="postName">Change post name:</label>
+        @Html.EditorFor(p => p.PostName)
+
         <input type="submit" value="Update" />
     }
 </div>

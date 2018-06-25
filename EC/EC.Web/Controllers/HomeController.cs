@@ -15,17 +15,12 @@ namespace EC.Web.Controllers
 
         public ActionResult StartPage()
         {
-                return View();
+            return View();
         }
 
         public ActionResult EditorStartPage()
         {
-            try { return View(); }
-            catch (ArgumentException ex)
-            {
-                _logger.LogInfo(ex.Message);
-                return Redirect("~/Error/ServerError");
-            }
+            return View();
         }
     }
 }

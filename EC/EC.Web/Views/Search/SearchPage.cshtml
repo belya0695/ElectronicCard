@@ -20,7 +20,7 @@
 <div class="left-bar">
     <div id="radio-list">
         <span>Search by:</span><br />
-        <input type="radio" id="radio-date" name="search" value="search-by-date" checked/>
+        <input type="radio" id="radio-date" name="search" value="search-by-date" checked />
         <label for="radio-date">date</label><br />
         <input type="radio" id="radio-diagnosis" name="search" value="search-by-diagnosis" />
         <label for="radio-diagnosis">diagnosis</label><br />
@@ -29,7 +29,7 @@
     </div>
 
     <div id="date-search">
-        <input type="date" id="date" name="date" />
+        <input type="date" id="date" name="date" value=""/>
         <input type="button" value="Search" onclick="window.jsonVar.SearchByDate()" />
     </div>
 
@@ -42,8 +42,6 @@
         <input type="search" id="post" name="post" />
         <input type="button" value="Search" onclick="window.jsonVar.SearchByPost()" />
     </div>
+    <div>@ViewBag.Message</div>
 </div>
-
-<div class="center-elements">
-    <div id="search-results"></div>
-</div>
+<div id="search-results"></div>

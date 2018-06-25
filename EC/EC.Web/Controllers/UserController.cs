@@ -5,6 +5,8 @@ using System;
 using System.Web.Mvc;
 using EC.Web.AuthAttributes.Models;
 using EC.Common.Models;
+using EC.Web.Models;
+using System.Data.SqlClient;
 
 namespace EC.Web.Controllers
 {
@@ -38,17 +40,33 @@ namespace EC.Web.Controllers
         {
             ViewBag.Roles = ListForRoles();
             ViewBag.Posts = ListForPosts();
+
             return View();
         }
 
         [Admin]
         [HttpPost]
-        public ActionResult AddUser(string firstName, string middleName, string lastName, int postId, DateTime birthdate, string workplace, string email, string phone, string login, string pass, int roleId)
+        public ActionResult AddUser(UserAddViewModel userAdd)
         {
             try
             {
-                _userProvider.AddUserWithLoginAndPhone(firstName, middleName, lastName, postId, birthdate, workplace, email, phone, login, pass, roleId);
-                return Redirect("~/User/GetAllUsers");
+                if (ModelState.IsValid)
+                {
+                    _userProvider.AddUserWithLoginAndPhone(userAdd.FirstName, userAdd.MiddleName, userAdd.LastName, userAdd.UserPostId, userAdd.BirthDate, userAdd.Workplace, userAdd.Email, userAdd.Phone, userAdd.Login, userAdd.Password, userAdd.UserRoleId);
+                    return Redirect("~/User/GetAllUsers");
+                }
+                else
+                {
+                    ViewBag.Roles = ListForRoles();
+                    ViewBag.Posts = ListForPosts();
+                    return View(userAdd);
+                }
+            }
+            catch (SqlException ex)
+            {
+                _logger.LogError(ex.Message);
+                ViewBag.Message = ex.Message;
+                return View("SqlError");
             }
             catch (Exception ex)
             {
@@ -60,14 +78,37 @@ namespace EC.Web.Controllers
         [Admin]
         public ActionResult GetUserByLogin(string login)
         {
-            return View(_userProvider.GetUserByLogin(login));
+            ViewBag.Posts = ListForPosts();
+            return View(ConvertUserToUpdateViewModel(_userProvider.GetUserByLogin(login)));
         }
 
         [Admin]
-        public ActionResult UpdateUser(int userId, string firstName, string middleName, string lastName, int postId, DateTime birthdate, string workplace, string email)
+        public ActionResult UpdateUser(UserUpdateViewModel userUpdate)
         {
-            _userProvider.UpdateUser(userId, firstName, middleName, lastName, postId, birthdate, workplace, email);
-            return Redirect("~/User/GetAllUsers");
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _userProvider.UpdateUser(userUpdate.UserId, userUpdate.FirstName, userUpdate.MiddleName, userUpdate.LastName, userUpdate.UserPostId, userUpdate.BirthDate, userUpdate.Workplace, userUpdate.Email);
+                    return Redirect("~/User/GetAllUsers");
+                }
+                else
+                {
+                    ViewBag.Posts = ListForPosts();
+                    return View("GetUserByLogin", userUpdate);
+                }
+            }
+            catch (SqlException ex)
+            {
+                _logger.LogError(ex.Message);
+                ViewBag.Message = ex.Message;
+                return View("SqlError");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return Redirect("/Error/ServerError");
+            }
         }
 
         [Admin]
@@ -77,6 +118,12 @@ namespace EC.Web.Controllers
             {
                 _userProvider.DeleteUserAndHisPhone(userId);
                 return Redirect("~/User/GetAllUsers");
+            }
+            catch (SqlException ex)
+            {
+                _logger.LogError(ex.Message);
+                ViewBag.Message = ex.Message;
+                return View("SqlError");
             }
             catch (Exception ex)
             {
@@ -88,15 +135,32 @@ namespace EC.Web.Controllers
         private MultiSelectList ListForRoles()
         {
             Role[] roles = _userProvider.GetAllRoles();
-            MultiSelectList multiSelectList = new MultiSelectList(roles, "roleId", "RoleName");
+            MultiSelectList multiSelectList = new MultiSelectList(roles, "RoleId", "RoleName");
             return multiSelectList;
         }
 
         private MultiSelectList ListForPosts()
         {
             Post[] posts = _postProvider.GetPosts();
-            MultiSelectList multiSelectList = new MultiSelectList(posts, "postId", "PostName");
+            MultiSelectList multiSelectList = new MultiSelectList(posts, "PostId", "PostName");
             return multiSelectList;
+        }
+
+        private UserUpdateViewModel ConvertUserToUpdateViewModel(User user)
+        {
+            UserUpdateViewModel userViewModel = new UserUpdateViewModel()
+            {
+                UserId = user.UserId,
+                FirstName = user.FirstName,
+                MiddleName = user.MiddleName,
+                LastName = user.LastName,
+                Workplace = user.Workplace,
+                Email = user.Email,
+                BirthDate = user.BirthDate,
+                UserPostId = user.UserPost.PostId,
+                UserRoleId = user.Roles[0].RoleId
+            };
+            return userViewModel;
         }
     }
 }

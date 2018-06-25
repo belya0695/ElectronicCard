@@ -1,15 +1,18 @@
-﻿@model EC.Common.Models.Procedure
+﻿@model EC.Web.Models.ProcedureViewModel
 @{
     ViewBag.Title = "GetProcedure";
     Layout = "~/Views/_EditorHeader.cshtml";
 }
 <div class="content">
     <h2 class="center-elements">Edit Procedure</h2>
+    @Html.ValidationSummary()
     @using (Html.BeginForm("UpdateProcedure", "Procedure"))
     {
-        <label for="procName">Change procedure name:</label>
         <input type="text" name="procedureId" value="@Model.ProcedureId" hidden />
-        <input type="text" name="procName" value="@Model.ProcedureName" />
+
+        <label for="procName">Change procedure name:</label>
+        @Html.EditorFor(p => p.ProcedureName)
+
         <input type="submit" value="Update" />
     }
 </div>

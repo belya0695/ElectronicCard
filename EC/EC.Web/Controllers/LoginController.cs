@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Web.Mvc;
 using EC.Business.Enums;
 using EC.Business.Services;
@@ -29,6 +30,12 @@ namespace EC.Web.Controllers
             try
             {
                 result = _authService.Login(login, password);
+            }
+            catch (SqlException ex)
+            {
+                _logger.LogError(ex.Message);
+                ViewBag.Message = ex.Message;
+                return View("SqlError");
             }
             catch (Exception ex)
             {

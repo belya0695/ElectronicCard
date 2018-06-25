@@ -1,4 +1,4 @@
-﻿@model EC.Common.Models.User
+﻿@model EC.Web.Models.UserAddViewModel
 @{
     ViewBag.Title = "AddUser";
     Layout = "~/Views/_EditorHeader.cshtml";
@@ -6,40 +6,43 @@
 
 <div class="content">
     <h2 class="center-elements">Add User</h2>
+    @Html.ValidationSummary()
     @using (Html.BeginForm("AddUser", "User"))
     {
 
         <label for="firstName">User's first name:</label>
-        <input type="text" name="firstName" value="" /><br />
+        @Html.EditorFor(u => u.FirstName)<br />
+
         <label for="middleName">User's middle name:</label>
-        <input type="text" name="middleName" value="" /><br />
+        @Html.EditorFor(u => u.MiddleName)<br />
+
         <label for="lastName">User's last name:</label>
-        <input type="text" name="lastName" value="" /><br />
+        @Html.EditorFor(u => u.LastName)<br />
 
         <label for="birthdate">User's birthdate:</label>
-        <input type="date" name="birthdate" value="" /><br />
+        @Html.TextBoxFor(u => u.BirthDate, new { type = "date"})<br />
 
         <label for="workplace">User's workplace:</label>
-        <input type="text" name="workplace" value="" /><br />
+        @Html.EditorFor(u => u.Workplace)<br />
 
-        <label for="postId">User's post:</label>
-        @Html.DropDownList("postId", ViewBag.Posts as MultiSelectList);<br />
+        <label>User's post:</label>
+        @Html.DropDownListFor(u => u.UserPostId, ViewBag.Posts as MultiSelectList);<br />
 
         <label for="email">User's email:</label>
-        <input type="text" name="email" value="" /><br />
+        @Html.EditorFor(u => u.Email)<br />
 
         <label for="login">User's login:</label>
-        <input type="text" name="login" value="" /><br />
+        @Html.EditorFor(u => u.Login)<br />
 
         <label for="pass">User's pass:</label>
-        <input type="password" name="pass" value="" /><br />
+        @Html.EditorFor(u => u.Password)<br />
 
-        <label for="roleId">User's role:</label>
-        @Html.DropDownList("roleId", ViewBag.Roles as MultiSelectList);<br />
+        <label>User's role:</label>
+        @Html.DropDownListFor(u => u.UserRoleId, ViewBag.Roles as MultiSelectList);<br />
 
         <label for="email">User's phone:</label>
-        <input type="text" name="phone" value="" /><br />
+        @Html.EditorFor(u => u.Phone)<br />
 
-        <input type="submit" value="Update" />
+        <input type="submit" value="Add user" />
     }
 </div>

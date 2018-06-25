@@ -1,7 +1,10 @@
 ﻿using EC.Business.Providers;
 using EC.Common.Log;
+using EC.Common.Models;
+using EC.Web.Models;
 using System;
 using System.ComponentModel;
+using System.Data.SqlClient;
 using System.Web.Mvc;
 
 namespace EC.Web.Controllers
@@ -29,11 +32,17 @@ namespace EC.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddDiagnosis(string diagnosisName)
+        public ActionResult AddDiagnosis(DiagnosisViewModel diagnosisViewModel)
         {
-
-            _diagnosisProvider.AddDiagnosis(diagnosisName);
-            return Redirect("~/Diagnosis/DiagnosesList");
+            if (ModelState.IsValid)
+            {
+                _diagnosisProvider.AddDiagnosis(diagnosisViewModel.DiagnosisName);
+                return Redirect("~/Diagnosis/DiagnosesList");
+            }
+            else
+            {
+                return View(diagnosisViewModel);
+            }
         }
 
         public ActionResult DeleteDiagnosis(int diagnosisId)
@@ -43,6 +52,12 @@ namespace EC.Web.Controllers
                 _diagnosisProvider.DeleteDiagnosis(diagnosisId);
                 return Redirect("~/Diagnosis/DiagnosesList");
             }
+            catch (SqlException ex)
+            {
+                _logger.LogError(ex.Message);
+                ViewBag.Message = ex.Message;
+                return View("SqlError");
+            }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
@@ -51,15 +66,32 @@ namespace EC.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult UpdateDiagnosis(int diagnosisId, string diagnosisName)
+        public ActionResult UpdateDiagnosis(DiagnosisViewModel diagnosisViewModel)
         {
-            _diagnosisProvider.UpdateDiagnosis(diagnosisId, diagnosisName);
-            return Redirect("~/Diagnosis/DiagnosesList");
+            if (ModelState.IsValid)
+            {
+                _diagnosisProvider.UpdateDiagnosis(diagnosisViewModel.DiagnosisId, diagnosisViewModel.DiagnosisName);
+                return Redirect("~/Diagnosis/DiagnosesList");
+            }
+            else
+            {
+                return View("GetDiagnosis", diagnosisViewModel);
+            }
         }
 
         public ActionResult GetDiagnosis(int diagnosisId)
         {
-            return View(_diagnosisProvider.GetDiagnosis(diagnosisId));
+            return View(ConvertDiagnosisToDiagnosisViewModel(_diagnosisProvider.GetDiagnosis(diagnosisId)));
+        }
+
+        private DiagnosisViewModel ConvertDiagnosisToDiagnosisViewModel(Diagnosis diagnosis)
+        {
+            DiagnosisViewModel diagnosisViewModel = new DiagnosisViewModel()
+            {
+                DiagnosisId = diagnosis.DiagnosisId,
+                DiagnosisName = diagnosis.DiagnosisName
+            };
+            return diagnosisViewModel;
         }
     }
 }
