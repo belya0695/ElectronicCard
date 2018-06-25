@@ -2,6 +2,7 @@
 using EC.Common.Log;
 using System;
 using System.ComponentModel;
+using System.Data.SqlClient;
 using System.Web.Mvc;
 
 namespace EC.Web.Controllers
@@ -43,6 +44,12 @@ namespace EC.Web.Controllers
             {
                 _drugProvider.DeleteDrug(drugId);
                 return Redirect("~/Drug/DrugsList");
+            }
+            catch (SqlException ex)
+            {
+                _logger.LogError(ex.Message);
+                ViewBag.Message = ex.Message;
+                return View("SqlError");
             }
             catch (Exception ex)
             {

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using EC.Web.AuthAttributes.Models;
 using EC.Common.Models;
 using EC.Web.Models;
+using System.Data.SqlClient;
 
 namespace EC.Web.Controllers
 {
@@ -61,6 +62,12 @@ namespace EC.Web.Controllers
                     return View(userAdd);
                 }
             }
+            catch (SqlException ex)
+            {
+                _logger.LogError(ex.Message);
+                ViewBag.Message = ex.Message;
+                return View("SqlError");
+            }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
@@ -91,6 +98,12 @@ namespace EC.Web.Controllers
                     return View("GetUserByLogin", userUpdate);
                 }
             }
+            catch (SqlException ex)
+            {
+                _logger.LogError(ex.Message);
+                ViewBag.Message = ex.Message;
+                return View("SqlError");
+            }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
@@ -105,6 +118,12 @@ namespace EC.Web.Controllers
             {
                 _userProvider.DeleteUserAndHisPhone(userId);
                 return Redirect("~/User/GetAllUsers");
+            }
+            catch (SqlException ex)
+            {
+                _logger.LogError(ex.Message);
+                ViewBag.Message = ex.Message;
+                return View("SqlError");
             }
             catch (Exception ex)
             {
