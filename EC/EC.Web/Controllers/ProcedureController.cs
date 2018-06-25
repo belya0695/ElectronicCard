@@ -1,5 +1,7 @@
 ﻿using EC.Business.Providers;
 using EC.Common.Log;
+using EC.Common.Models;
+using EC.Web.Models;
 using System;
 using System.ComponentModel;
 using System.Data.SqlClient;
@@ -30,10 +32,17 @@ namespace EC.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddProcedure(string procName)
+        public ActionResult AddProcedure(ProcedureViewModel procedureViewModel)
         {
-            _procedureProvider.AddProcedure(procName);
-            return Redirect("~/Procedure/ProceduresList");
+            if (ModelState.IsValid)
+            {
+                _procedureProvider.AddProcedure(procedureViewModel.ProcedureName);
+                return Redirect("~/Procedure/ProceduresList");
+            }
+            else
+            {
+                return View(procedureViewModel);
+            }
         }
 
         public ActionResult DeleteProcedure(int procedureId)
@@ -57,15 +66,32 @@ namespace EC.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult UpdateProcedure(int procedureId, string procName)
+        public ActionResult UpdateProcedure(ProcedureViewModel procedureViewModel)
         {
-            _procedureProvider.UpdateProcedure(procedureId, procName);
-            return Redirect("~/Procedure/ProceduresList");
+            if (ModelState.IsValid)
+            {
+                _procedureProvider.UpdateProcedure(procedureViewModel.ProcedureId, procedureViewModel.ProcedureName);
+                return Redirect("~/Procedure/ProceduresList");
+            }
+            else
+            {
+                return View("GetProcedure", procedureViewModel);
+            }
         }
 
         public ActionResult GetProcedure(int procedureId)
         {
-            return View(_procedureProvider.GetProcedure(procedureId));
+            return View(ConvertProcedureToProcedureViewModel(_procedureProvider.GetProcedure(procedureId)));
+        }
+
+        private ProcedureViewModel ConvertProcedureToProcedureViewModel(Procedure procedure)
+        {
+            ProcedureViewModel procedureViewModel = new ProcedureViewModel()
+            {
+                ProcedureId = procedure.ProcedureId,
+                ProcedureName = procedure.ProcedureName
+            };
+            return procedureViewModel;
         }
     }
 }

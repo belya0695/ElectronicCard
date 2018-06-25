@@ -1,5 +1,7 @@
 ﻿using EC.Business.Providers;
 using EC.Common.Log;
+using EC.Common.Models;
+using EC.Web.Models;
 using System;
 using System.ComponentModel;
 using System.Data.SqlClient;
@@ -30,10 +32,17 @@ namespace EC.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddPost(string postName)
+        public ActionResult AddPost(PostViewModel postViewModel)
         {
-            _postProvider.AddPost(postName);
-            return Redirect("~/Post/PostsList");
+            if (ModelState.IsValid)
+            {
+                _postProvider.AddPost(postViewModel.PostName);
+                return Redirect("~/Post/PostsList");
+            }
+            else
+            {
+                return View(postViewModel);
+            }
         }
 
         public ActionResult DeletePost(int postId)
@@ -57,15 +66,32 @@ namespace EC.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult UpdatePost(int postId, string postName)
+        public ActionResult UpdatePost(PostViewModel postViewModel)
         {
-            _postProvider.UpdatePost(postId, postName);
-            return Redirect("~/Post/PostsList");
+            if (ModelState.IsValid)
+            {
+                _postProvider.UpdatePost(postViewModel.PostId, postViewModel.PostName);
+                return Redirect("~/Post/PostsList");
+            }
+            else
+            {
+                return View("GetPost", postViewModel);
+            }
         }
 
         public ActionResult GetPost(int postId)
         {
-            return View(_postProvider.GetPost(postId));
+            return View(ConvertPostToPostViewModel(_postProvider.GetPost(postId)));
+        }
+
+        private PostViewModel ConvertPostToPostViewModel(Post post)
+        {
+            PostViewModel postViewModel = new PostViewModel()
+            {
+                PostId = post.PostId,
+                PostName = post.PostName
+            };
+            return postViewModel;
         }
     }
 }
